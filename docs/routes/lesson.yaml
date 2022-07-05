@@ -1,0 +1,607 @@
+components:
+  schemas:
+    GetAllLessonsResponse:
+      type: object
+      properties:
+        lessons:
+          type: array
+          description: This is an array that contains all the upcoming lessons
+          items:
+            type: object
+            properties:
+              _id:
+                type: string
+                description: The id of the lesson
+              type:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                    description: The id of the lesson type
+                  name:
+                    type: string
+                    description: The name of the lesson type
+                  description:
+                    type: string
+                    description: Descriptive text of the lesson type
+                  featuredImage:
+                    type: string
+                    description: Url of the featured image
+              location:
+                type: string
+                description: Location of the lesson
+              start:
+                type: date
+                description: Start of the lesson
+              end:
+                type: date
+                description: End of the lesson
+              price:
+                type: number
+                description: Price of the lesson
+              maxAttendants:
+                type: number
+                description: Maximum number of guests
+              instructor:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                    description: The userId of the instructor
+                  name:
+                    type: string
+                    description: The name of the instructor
+              guests:
+                type: array
+                description: This is an array that contains all the guests of the lesson
+                items:
+                  type: string
+                  description: UserIds of the guests who booked the lesson
+      example: 
+        {
+          "lessons": [
+            {
+              "_id": "629cc531f93863eea6acfe07",
+              "type": {
+                "_id": "629cac6dcdac199216eea139",
+                "name": "Aerial yoga",
+                "description": "Aerial yoga is a type of yoga which uses a hammock or yoga swing to allow students to perform postures that they may not ordinarily be able to attempt on the yoga mat. It is often also referred to as AntiGravity® yoga. It combines traditional yoga with moves inspired by pilates, dance and acrobatics.",
+                "featuredImage": "https://i0.wp.com/bhamnow.com/wp-content/uploads/2020/03/aerial-yoga-via-be-studio-scaled.jpg"
+              },
+              "location": "Test Locat",
+              "start": "2022-06-14T20:15:04.000Z",
+              "end": "2022-06-14T20:30:04.000Z",
+              "price": 1000,
+              "maxAttendants": 18,
+              "instructor": {
+                "_id": "6284ce6a909f3ff83471380e",
+                "name": "Instructor Enikő"
+              },
+              "__v": 15,
+              "guests": [
+                "6284ce6a909f3ff83471380e",
+                "6284ce6a909f3ff83471380e",
+                "6284ce6a909f3ff83471380e",
+                "6284ce6a909f3ff83471380e",
+                "62a5018b58c3a5e923f214b1",
+                "62a5018b58c3a5e923f214b1",
+                "6284ce6a909f3ff83471380e",
+                "6284ce6a909f3ff83471380e",
+                "6284ce6a909f3ff83471380e"
+              ]
+            },
+          ]
+        }
+    
+    GetAllLessonsResponseAdmin:
+      type: object
+      properties:
+        lessons:
+          type: array
+          description: This is an array that contains all the lessons
+          items:
+            type: object
+            properties:
+              _id:
+                type: string
+                description: The id of the lesson
+              type:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                    description: The id of the lesson type
+                  name:
+                    type: string
+                    description: The name of the lesson type
+                  description:
+                    type: string
+                    description: Descriptive text of the lesson type
+                  featuredImage:
+                    type: string
+                    description: Url of the featured image
+              location:
+                type: string
+                description: Location of the lesson
+              start:
+                type: date
+                description: Start of the lesson
+              end:
+                type: date
+                description: End of the lesson
+              price:
+                type: number
+                description: Price of the lesson
+              maxAttendants:
+                type: number
+                description: Maximum number of guests
+              instructor:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                    description: The userId of the instructor
+                  name:
+                    type: string
+                    description: The name of the instructor
+              guests:
+                type: array
+                description: This is an array that contains all the guests of the lesson
+                items:
+                  type: object
+                  properties:
+                    _id:
+                      type: string
+                      description: The userId of the guest
+                    name:
+                      type: string
+                      description: The name of the guest
+                    avatar:
+                      type: string
+                      description: Profile picture of the guest
+      example: 
+        {
+          "lessons": [
+            {
+              "_id": "629cc531f93863eea6acfe07",
+              "type": {
+                "_id": "629cac6dcdac199216eea139",
+                "name": "Aerial yoga",
+                "description": "Aerial yoga is a type of yoga which uses a hammock or yoga swing to allow students to perform postures that they may not ordinarily be able to attempt on the yoga mat. It is often also referred to as AntiGravity® yoga. It combines traditional yoga with moves inspired by pilates, dance and acrobatics.",
+                "featuredImage": "https://i0.wp.com/bhamnow.com/wp-content/uploads/2020/03/aerial-yoga-via-be-studio-scaled.jpg"
+              },
+              "location": "Test Locat",
+              "start": "2022-06-14T20:15:04.000Z",
+              "end": "2022-06-14T20:30:04.000Z",
+              "price": 1000,
+              "maxAttendants": 18,
+              "instructor": {
+                "_id": "6284ce6a909f3ff83471380e",
+                "name": "Instructor Enikő"
+              },
+              "__v": 15,
+              "guests": [
+                {
+                  "_id": "6284ce6a909f3ff83471380e",
+                  "name": "Instructor Enikő",
+                  "avatar": "https://www.pikpng.com/pngl/m/80-805068_my-profile-icon-blank-profile-picture-circle-clipart.png"
+                },
+                {
+                  "_id": "6284ce6a909f3ff83471380e",
+                  "name": "Instructor Enikő",
+                  "avatar": "https://www.pikpng.com/pngl/m/80-805068_my-profile-icon-blank-profile-picture-circle-clipart.png"
+                },
+              ]
+            },
+          ]
+        }
+
+    GetLessonByIdResponse:
+      type: object
+      properties:
+        lesson:
+          type: object
+          properties:
+            _id:
+              type: string
+              description: The id of the lesson
+            type:
+              type: string
+              description: The id of the lesson type
+            location:
+              type: string
+              description: Location of the lesson
+            start:
+              type: date
+              description: Start of the lesson
+            end:
+              type: date
+              description: End of the lesson
+            price:
+              type: number
+              description: Price of the lesson
+            maxAttendants:
+              type: number
+              description: Maximum number of guests
+            instructor:
+              type: string
+              description: The userId of the instructor
+            guests:
+              type: array
+              description: This is an array that contains all the guests of the lesson
+              items:
+                type: string
+                description: UserIds of the guests who booked the lesson
+      example: 
+        {
+          "lesson": {
+            "_id": "629cc531f93863eea6acfe07",
+            "type": "629cac6dcdac199216eea139",
+            "location": "Test Locat",
+            "start": "2022-06-14T20:15:04.000Z",
+            "end": "2022-06-14T20:30:04.000Z",
+            "price": 1000,
+            "maxAttendants": 18,
+            "instructor": "6284ce6a909f3ff83471380e",
+            "__v": 15,
+            "guests": [
+              "6284ce6a909f3ff83471380e",
+              "6284ce6a909f3ff83471380e",
+              "6284ce6a909f3ff83471380e"
+            ]
+          }
+        }
+    
+    AddLessonResponseAdmin:
+      type: object
+      properties:
+        result:
+          type: object
+          properties:
+            confirmation:
+              type: string
+              description: Confirmation of succesfull creation of lesson
+      example: 
+        {
+          "result": {
+            "confirmation": "New lesson created"
+          }
+        }
+    
+    DeleteLessonByIdResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          properties:
+            confirmation:
+              type: string
+              description: Confirmation of succesfull delete
+      example: 
+        {
+          "result": {
+            "confirmation": "Óra és foglalásai törölve"
+          }
+        }
+    
+    UpdateLessonByIdResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          properties:
+            confirmation:
+              type: string
+              description: Confirmation of succesfull update
+      example: 
+        {
+          "result": {
+            "confirmation": "Lesson updated"
+          }
+        }
+    
+    GetLessonByIdAdminResponse:
+      type: object
+      properties:
+        _id:
+          type: string
+          description: The id of the lesson
+        type:
+          type: string
+          description: The id of the lesson type
+        location:
+          type: string
+          description: Location of the lesson
+        start:
+          type: date
+          description: Start of the lesson
+        end:
+          type: date
+          description: End of the lesson
+        price:
+          type: number
+          description: Price of the lesson
+        maxAttendants:
+          type: number
+          description: Maximum number of guests
+        instructor:
+            type: object
+            properties:
+              _id:
+                type: string
+                description: The userId of the instructor
+              name:
+                type: string
+                description: The name of the instructor
+        guests:
+          type: array
+          description: This is an array that guests of the lesson
+          items:
+            type: object
+            properties:
+              _id:
+                type: string
+                description: The userId of the guest
+              name:
+                type: string
+                description: The name of the guest
+              avatar:
+                type: string
+                description: Profile picture of the guest
+      example: 
+        {
+          "_id": "629cc531f93863eea6acfe07",
+          "type": "629cac6dcdac199216eea139",
+          "location": "Test Locat",
+          "start": "2022-06-14T20:15:04.000Z",
+          "end": "2022-06-14T20:30:04.000Z",
+          "price": 1000,
+          "maxAttendants": 18,
+          "instructor": {
+            "_id": "6284ce6a909f3ff83471380e",
+            "name": "Instructor Enikő"
+          },
+          "__v": 15,
+          "guests": [
+            {
+              "_id": "6284ce6a909f3ff83471380e",
+              "name": "Instructor Enikő",
+              "avatar": "https://www.pikpng.com/pngl/m/80-805068_my-profile-icon-blank-profile-picture-circle-clipart.png"
+            },
+            {
+              "_id": "6284ce6a909f3ff83471380e",
+              "name": "Instructor Enikő",
+              "avatar": "https://www.pikpng.com/pngl/m/80-805068_my-profile-icon-blank-profile-picture-circle-clipart.png"
+            },
+          ]
+        }
+
+    AddLessonReqBody:
+      type: object
+      properties:
+        type:
+          type: string
+          description: The id of the lesson type
+        location:
+          type: string
+          description: Location of the lesson
+        start:
+          type: date
+          description: Start of the lesson
+        end:
+          type: date
+          description: End of the lesson
+        price:
+          type: number
+          description: Price of the lesson
+        maxAttendants:
+          type: number
+          description: Maximum number of guests
+        instructor:
+          type: string
+          description: The userId of the instructor
+      example:
+        {
+          "type": "629cadc8cdac199216eea13d",
+          "location": "Location C",
+          "start": "2022-06-23T01:45:00.000Z", 
+          "end": "2022-06-23T01:45:00.000Z",
+          "price": 2000,
+          "maxAttendants": 12,
+          "instructor": "6284ce6a909f3ff83471380e",
+        }
+        
+tags:
+  name: Lessons
+  description: Managing requests about lessons
+
+/classes:
+  get:
+    summary: Getting a list of all upcoming lessons
+    tags: [Lessons]
+    responses:
+      200:
+        description: Lessons are successfully loaded from the database
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetAllLessonsResponse'
+      400:
+        description: There was some error while retrieving data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
+
+  post:
+    summary: ADMIN - Creating a new lesson
+    tags: [Lessons]
+    security:
+      - bearerAuth: []
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AddLessonReqBody'
+    responses:
+      200:
+        description: Lessons are successfully loaded from the database
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/AddLessonResponseAdmin'
+      400:
+        description: There was some error while retrieving data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
+      401:
+        description: Unauthorized acces or invalid token
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
+
+/classes/{lessonId}:
+  get:
+    summary: Getting a lesson by id
+    tags: [Lessons]
+    parameters:
+      - in: path
+        name: lessonId
+        required: true
+    responses:
+      200:
+        description: Lesson is successfully loaded from the database
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetLessonByIdResponse'
+      400:
+        description: There was some error while retrieving data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
+  
+  delete:
+    summary: ADMIN - Delete a lesson by id
+    tags: [Lessons]
+    security:
+      - bearerAuth: []
+    parameters:
+      - in: path
+        name: lessonId
+        required: true
+    responses:
+      200:
+        description: Lesson is successfully removed from the database
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/DeleteLessonByIdResponse'
+      400:
+        description: There was some error while deleting data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
+      401:
+        description: Unauthorized acces or invalid token
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
+  
+  patch:
+    summary: ADMIN - Update a lesson by id
+    tags: [Lessons]
+    security:
+      - bearerAuth: []
+    parameters:
+      - in: path
+        name: lessonId
+        required: true
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/AddLessonReqBody'    
+    responses:
+      200:
+        description: Lesson is successfully updated
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/UpdateLessonByIdResponse'
+      400:
+        description: There was some error while updating data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
+      401:
+        description: Unauthorized acces or invalid token
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
+
+/lessons/all:
+  get:
+    summary: ADMIN - Getting a list of all lessons
+    tags: [Lessons]
+    security:
+      - bearerAuth: []
+    responses:
+      200:
+        description: Lessons are successfully loaded from the database
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetAllLessonsResponseAdmin'
+      400:
+        description: There was some error while retrieving data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
+      401:
+        description: Unauthorized acces or invalid token
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
+
+/class-details/{lessonId}:
+  get:
+    summary: ADMIN - Getting a lessons by id
+    tags: [Lessons]
+    security:
+      - bearerAuth: []
+    parameters:
+      - in: path
+        name: lessonId
+        required: true
+    responses:
+      200:
+        description: Lesson is successfully loaded from the database
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetLessonByIdAdminResponse'
+      400:
+        description: There was some error while retrieving data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
+      401:
+        description: Unauthorized acces or invalid token
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'        

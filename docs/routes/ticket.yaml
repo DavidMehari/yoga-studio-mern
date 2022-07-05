@@ -1,0 +1,60 @@
+components:
+  schemas:
+    GetAllTicketsResponse:
+      type: object
+      properties:
+        tickets:
+          type: array
+          description: This is an array that contains all tickets
+          items:
+            type: object
+            properties:
+              _id:
+                type: string
+                description: The id of the ticket
+              name:
+                type: string
+                description: The name of the ticket
+              description:
+                type: string
+                description: Descriptive text of the ticket
+              price:
+                type: string
+                description: Descriptive text of the ticket price total & per lesson, how much you save...
+              validity:
+                type: string
+                description: Descriptive text of the validity of the ticket
+      example: 
+        {
+          "tickets": [
+            {
+              "_id": "62a0d0136e766c0e3d0c78af",
+              "name": "1 alkalmas jegy",
+              "description": "Felhasználható csoportos órákon",
+              "price": "3.000 Ft",
+              "validity": "1 alkalom"
+            },
+          ]
+        }
+
+tags:
+  name: Ticket
+  description: Managing requests about tickets
+
+/tickets:
+  get:
+    summary: Getting a list of all tickets
+    tags: [Ticket]
+    responses:
+      200:
+        description: Tickets are successfully loaded from the database
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetAllTicketsResponse'
+      400:
+        description: There was some error while retrieving data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'

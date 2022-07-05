@@ -1,0 +1,48 @@
+components:
+  schemas:
+    GetInstuctorsResponse:
+      type: object
+      properties:
+        instructors:
+          type: array
+          description: This is an array that contains all the instructors
+          items:
+            type: object
+            properties:
+              _id:
+                type: string
+                description: The userId of the instructor
+              name:
+                type: string
+                description: The name of the instructor
+      example: 
+        {
+          instructors: [
+            {
+              _id: '627b8aca069d93e828b84de8',
+              name: John Doe,
+            }
+          ]
+        }        
+
+tags:
+  name: User
+  description: Managing requests about user's data
+
+/instructors:
+  get:
+    summary: Getting a list of insturctors
+    tags: [User]
+    responses:
+      200:
+        description: Instructors are successfully loaded from the database
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetInstuctorsResponse'
+      400:
+        description: There was some error while retrieving data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'

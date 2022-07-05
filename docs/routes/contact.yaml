@@ -1,0 +1,68 @@
+components:
+  schemas:
+    SendContactEmailResponse:
+      type: object
+      properties:
+        result:
+          type: object
+          properties:
+            confirmation:
+              type: string
+              description: Confirmation of sent message
+      example: 
+        {
+          "result": {
+            "confirmation": "Email sent"
+          }
+        }
+
+    SendContactEmailReqBody:
+      type: object
+      properties:
+        name:
+          type: string
+          description: Name of sender
+        title:
+          type: string
+          description: Subject of the message
+        email:
+          type: string
+          description: Email of the sender
+        message:
+          type: string
+          description: The Message to send  
+      example:
+        {
+          "name": "John Doe",
+          "title": "About smth",
+          "email": "email@email.com",
+          "message": "The Message to send",
+        }
+
+tags:
+  name: Email
+  description: Managing requests about the email service
+
+/contact:
+  post:
+    summary: Sending a contact form message
+    tags: [Email]
+    requestBody:
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/SendContactEmailReqBody' 
+    responses:
+      200:
+        description: Message sent successfully
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SendContactEmailResponse'
+      400:
+        description: There was some error while sending message
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'

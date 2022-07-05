@@ -1,0 +1,58 @@
+components:
+  schemas:
+    GetLessonTypesResponse:
+      type: object
+      properties:
+        instructors:
+          type: array
+          description: This is an array that contains all the lesson types
+          items:
+            type: object
+            properties:
+              _id:
+                type: string
+                description: The id of the lesson type
+              name:
+                type: string
+                description: The name of the lesson type
+              description:
+                type: string
+                description: Descriptive text of the lesson type
+              featuredImage:
+                type: string
+                description: Url of the featured image
+      example: 
+        {
+          lessonTypes: [
+            {
+              _id: '627b8aca069d93e828b84de8',
+              name: John Doe,
+              description: Vinyasa is a type of yoga that links movement and 
+                breath to attain balance in the mind and body. From the Sanskrit 
+                to place in a special way,
+              featuredImage: https://mindbodygreen-res.cloudinary.com/image/,
+            }
+          ]
+        }
+
+tags:
+  name: Lesson Types
+  description: Managing requests about lesson types
+
+/lesson-types:
+  get:
+    summary: Getting a list of lesson types
+    tags: [Lesson Types]
+    responses:
+      200:
+        description: Lesson types are successfully loaded from the database
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/GetLessonTypesResponse'
+      400:
+        description: There was some error while retrieving data
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Error'
