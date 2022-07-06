@@ -28,7 +28,7 @@ const pages = {
   contact: 'Kapcsolat',
 };
 const userMenu = ['Foglalásaim', 'Kijelentkezés'];
-const adminMenu = ['Foglalások', 'Órák', 'Óra hozzáadása', 'Kijelentkezés'];
+const adminMenu = ['Foglalások', 'Órák', 'Óra hozzáadása', 'Óratípus hozzáadása', 'Kijelentkezés'];
 
 function Header() {
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -111,6 +111,9 @@ function Header() {
         break;
       case 'Óra hozzáadása':
         navigate('/admin/add-lesson');
+        break;
+      case 'Óratípus hozzáadása':
+        navigate('/admin/add-lesson-type');
         break;
 
       default:

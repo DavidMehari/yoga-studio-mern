@@ -12,35 +12,24 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  TextField,
   Typography,
 } from '@mui/material';
-import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
-
-import { LocalizationProvider } from '@mui/x-date-pickers';
-import AdapterDateFns from '@mui/lab/AdapterDateFns';
-import {
-  isPast,
-} from 'date-fns';
 import { useNavigate } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
 import FormInput from '../../components/FormInput';
-import { addNewLesson, getAllInstructorNames, getAllLessonTypes } from '../../helpers/utils';
+import { addNewLessonType, getAllInstructorNames } from '../../helpers/utils';
 
-function AddLesson() {
-  const [newLessonData, setNewLessonData] = useState({ start: '', end: '' });
+function AddLessonType() {
+  const [newLessonTypeData, setNewLessonTypeData] = useState({});
 
   const [errorMessages, setErrorMessages] = useState({
-    type: [],
+    lessonName: [],
     location: [],
-    start: [],
-    end: [],
     price: [],
     maxAttendants: [],
     instructor: [],
   });
   const [wasValidated, setWasValidated] = useState(false);
-  const [lessonTypes, setLessonTypes] = useState([]);
   const [instructors, setInstructors] = useState([]);
 
   const [sendStatus, setSendStatus] = useState('');
@@ -49,7 +38,6 @@ function AddLesson() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    getAllLessonTypes().then((result) => setLessonTypes(result.lessonTypes));
     getAllInstructorNames().then((result) => setInstructors(result.instructors));
   }, []);
 
@@ -57,12 +45,12 @@ function AddLesson() {
     return input !== '';
   };
 
-  const isNotPast = (input) => {
-    return !isPast(new Date(input));
+  const isNotNegative = (input) => {
+    return input >= 0;
   };
 
   const validators = {
-    type: [
+    lessonName: [
       {
         fn: isNotEmpty,
         errorMessage: 'Nem lehet üres',
@@ -74,36 +62,24 @@ function AddLesson() {
         errorMessage: 'Nem lehet üres',
       },
     ],
-    start: [
-      {
-        fn: isNotEmpty,
-        errorMessage: 'Nem lehet üres',
-      },
-      {
-        fn: isNotPast,
-        errorMessage: 'A választott időpont már elmúlt',
-      },
-    ],
-    end: [
-      {
-        fn: isNotEmpty,
-        errorMessage: 'Nem lehet üres',
-      },
-      {
-        fn: isNotPast,
-        errorMessage: 'Nem lehet a mai napnál korábban',
-      },
-    ],
     price: [
       {
         fn: isNotEmpty,
         errorMessage: 'Nem lehet üres',
+      },
+      {
+        fn: isNotNegative,
+        errorMessage: 'Nem lehet negatív',
       },
     ],
     maxAttendants: [
       {
         fn: isNotEmpty,
         errorMessage: 'Nem lehet üres',
+      },
+      {
+        fn: isNotNegative,
+        errorMessage: 'Nem lehet negatív',
       },
     ],
     instructor: [
@@ -118,7 +94,7 @@ function AddLesson() {
     const validationReports = [];
     validators[inputName].forEach((validator) => {
       const validatorFn = validator.fn;
-      const isValid = validatorFn(newLessonData[inputName]);
+      const isValid = validatorFn(newLessonTypeData[inputName]);
       const validatorErrorMessage = validator.errorMessage;
       setErrorMessages((prev) => ({
         ...prev,
@@ -135,10 +111,8 @@ function AddLesson() {
 
   const resetErrorMessages = () => {
     setErrorMessages({
-      type: [],
+      lessonName: [],
       location: [],
-      start: [],
-      end: [],
       price: [],
       maxAttendants: [],
       instructor: [],
@@ -161,7 +135,7 @@ function AddLesson() {
       setSendStatus('pending');
       setWasValidated(false);
 
-      const result = await addNewLesson(newLessonData);
+      const result = await addNewLessonType(newLessonTypeData);
       if (result.status === 200) {
         setSendStatus('success');
       } else {
@@ -172,7 +146,7 @@ function AddLesson() {
   };
 
   const handleChange = ({ target: { name, value } }) => {
-    setNewLessonData((prev) => ({
+    setNewLessonTypeData((prev) => ({
       ...prev,
       [name]: value,
     }));
@@ -181,63 +155,35 @@ function AddLesson() {
   return (
     <Container maxWidth="md" sx={{ my: 4 }}>
       <Typography variant="h2" align="center" component="h1" gutterBottom>
-        Óra létrehozása
+        Óratípus létrehozása
       </Typography>
 
       <Box>
-        <form id="add-lesson-form" onSubmit={handleSubmit} noValidate>
+        <form id="add-lessontype-form" onSubmit={handleSubmit} noValidate>
+          <FormInput
+            label="Óra neve"
+            name="lessonName"
+            handleOnChange={(e) => handleChange(e)}
+            type="text"
+            value={newLessonTypeData.lessonName}
+            errorMessages={errorMessages.lessonName}
+            wasValidated={wasValidated}
+          />
           <FormInput
             label="Helyszín"
             name="location"
             handleOnChange={(e) => handleChange(e)}
             type="text"
-            value={newLessonData.location}
+            value={newLessonTypeData.location}
             errorMessages={errorMessages.location}
             wasValidated={wasValidated}
           />
-          <Box sx={{ display: 'flex', gap: 1 }}>
-            <LocalizationProvider dateAdapter={AdapterDateFns}>
-              <DateTimePicker
-                label="Óra kezdete"
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    margin="dense"
-                    error={!!errorMessages.start.length}
-                    helperText={errorMessages.start.join(' ')}
-                  />
-                )}
-                value={newLessonData.start}
-                onChange={(value) => handleChange({ target: { value, name: 'start' } })}
-                minDate={new Date()}
-                minutesStep={15}
-              />
-              <DateTimePicker
-                label="Óra vége"
-                renderInput={(params) => (
-                  <TextField
-                    {...params}
-                    margin="dense"
-                    error={!!errorMessages.end.length}
-                    helperText={errorMessages.end.join(' ')}
-                  />
-                )}
-                value={newLessonData.end}
-                onChange={(value) => handleChange({ target: { value, name: 'end' } })}
-                minDateTime={
-                newLessonData.start ? new Date(newLessonData.start) : new Date()
-              }
-                minutesStep={15}
-              />
-            </LocalizationProvider>
-          </Box>
-
           <FormInput
             label="Ár"
             name="price"
             handleOnChange={(e) => handleChange(e)}
             type="Number"
-            value={newLessonData.price}
+            value={newLessonTypeData.price}
             errorMessages={errorMessages.price}
             wasValidated={wasValidated}
             InputProps={{
@@ -249,7 +195,7 @@ function AddLesson() {
             name="maxAttendants"
             handleOnChange={(e) => handleChange(e)}
             type="Number"
-            value={newLessonData.maxAttendants}
+            value={newLessonTypeData.maxAttendants}
             errorMessages={errorMessages.maxAttendants}
             wasValidated={wasValidated}
             InputProps={{
@@ -272,7 +218,7 @@ function AddLesson() {
               <Select
                 labelId="demo-simple-select-label-1"
                 id="instructor"
-                value={newLessonData.instructor || ''}
+                value={newLessonTypeData.instructor || ''}
                 label="Oktató"
                 onChange={(e) => handleChange(e)}
                 name="instructor"
@@ -286,25 +232,6 @@ function AddLesson() {
               </FormHelperText>
             </FormControl>
 
-            <FormControl
-              sx={{ minWidth: 250, flexGrow: 1 }}
-              error={!!errorMessages.type.length}
-            >
-              <InputLabel id="demo-simple-select-label-2">Óra típus</InputLabel>
-              <Select
-                labelId="demo-simple-select-label-2"
-                id="type"
-                value={newLessonData.type || ''}
-                label="Óra típus"
-                onChange={(e) => handleChange(e)}
-                name="type"
-              >
-                {lessonTypes.map((lessonType) => (
-                  <MenuItem key={lessonType._id} value={lessonType._id}>{lessonType.name}</MenuItem>
-                ))}
-              </Select>
-              <FormHelperText>{errorMessages.type.join(' ')}</FormHelperText>
-            </FormControl>
           </Box>
           {sendStatus && sendStatus !== 'pending'
             && (
@@ -325,7 +252,7 @@ function AddLesson() {
                 </IconButton>
                   )}
             >
-              {sendError || 'Óra sikeresen létrehozva'}
+              {sendError || 'Óratípus sikeresen létrehozva'}
             </Alert>
             )}
           <Box
@@ -340,7 +267,7 @@ function AddLesson() {
               Mégse
             </Button>
             <Button variant="contained" type="submit" onClick={handleSubmit}>
-              Óra létrehozása
+              Óratípus létrehozása
             </Button>
           </Box>
         </form>
@@ -349,4 +276,4 @@ function AddLesson() {
   );
 }
 
-export default AddLesson;
+export default AddLessonType;

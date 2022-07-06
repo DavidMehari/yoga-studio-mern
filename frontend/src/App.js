@@ -18,6 +18,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import AdminRoute from './components/admin/AdminRoute';
 import NotImplementedYet from './pages/NotImplementedYet';
 import AllLessons from './pages/admin/AllLessons';
+import AddLessonType from './pages/admin/AddLessonType';
 
 function App() {
   return (
@@ -39,6 +40,7 @@ function App() {
                 <Route path="/admin/bookings" element={<AllBookings />} />
                 <Route path="/admin/lessons" element={<AllLessons />} />
                 <Route path="/admin/add-lesson" element={<AddLesson />} />
+                <Route path="/admin/add-lesson-type" element={<AddLessonType />} />
                 <Route path="/admin/edit-lesson/:lessonId" element={<EditLesson />} />
               </Route>
             </Route>

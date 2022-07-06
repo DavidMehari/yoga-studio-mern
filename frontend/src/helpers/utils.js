@@ -29,8 +29,7 @@ export const registerNewUser = async (formData) => {
     return result;
   } catch {
     const result = {
-      message:
-        'Hálózati hiba. Regisztráció sikertelen.',
+      message: 'Hálózati hiba. Regisztráció sikertelen.',
     };
     return result;
   }
@@ -50,8 +49,7 @@ export const loginUser = async (formData) => {
     return result;
   } catch {
     const result = {
-      message:
-        'Hálózati hiba. Bejelentkezés sikertelen.',
+      message: 'Hálózati hiba. Bejelentkezés sikertelen.',
     };
     return result;
   }
@@ -59,20 +57,22 @@ export const loginUser = async (formData) => {
 
 export const loginWithGoogle = async (formData) => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/login-google`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URI}/login-google`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
       },
-      body: JSON.stringify(formData),
-    });
+    );
     const result = await response.json();
     result.status = response.status;
     return result;
   } catch {
     const result = {
-      message:
-        'Hálózati hiba. Bejelentkezés sikertelen.',
+      message: 'Hálózati hiba. Bejelentkezés sikertelen.',
     };
     return result;
   }
@@ -100,8 +100,7 @@ export const bookLesson = async (userId, lessonId, numOfGuests) => {
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Foglalás sikertelen.',
+      message: 'Hálózati hiba. Foglalás sikertelen.',
     };
     return result;
   }
@@ -124,8 +123,7 @@ export const sendContactMessage = async (formData) => {
     return result;
   } catch {
     const result = {
-      message:
-        'Network error. Message not sent!',
+      message: 'Network error. Message not sent!',
     };
     return result;
   }
@@ -149,8 +147,31 @@ export const addNewLesson = async (formData) => {
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Üzenet küldése sikertelen.',
+      message: 'Hálózati hiba. Üzenet küldése sikertelen.',
+    };
+    return result;
+  }
+};
+
+export const addNewLessonType = async (formData) => {
+  try {
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URI}/lesson-types`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+        },
+        body: JSON.stringify(formData),
+      },
+    );
+    const result = await response.json();
+    result.status = response.status;
+    return result;
+  } catch {
+    const result = {
+      message: 'Hálózati hiba. Üzenet küldése sikertelen.',
     };
     return result;
   }
@@ -174,8 +195,7 @@ export const updateLesson = async (lessonId, formData) => {
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Óra módosítása sikertelen.',
+      message: 'Hálózati hiba. Óra módosítása sikertelen.',
     };
     return result;
   }
@@ -183,14 +203,15 @@ export const updateLesson = async (lessonId, formData) => {
 
 export const getLesson = async (lessonId) => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/classes/${lessonId}`);
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URI}/classes/${lessonId}`,
+    );
     const result = await response.json();
     result.status = response.status;
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Lekérdezés sikertelen.',
+      message: 'Hálózati hiba. Lekérdezés sikertelen.',
     };
     return result;
   }
@@ -198,19 +219,21 @@ export const getLesson = async (lessonId) => {
 
 export const getLessonAdmin = async (lessonId) => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/classes/${lessonId}`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URI}/classes/${lessonId}`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+        },
       },
-    });
+    );
     const result = await response.json();
     result.status = response.status;
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Lekérdezés sikertelen.',
+      message: 'Hálózati hiba. Lekérdezés sikertelen.',
     };
     return result;
   }
@@ -233,8 +256,7 @@ export const deleteLesson = async (lessonId) => {
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Óra törlése sikertelen.',
+      message: 'Hálózati hiba. Óra törlése sikertelen.',
     };
     return result;
   }
@@ -257,8 +279,7 @@ export const cancelBooking = async (bookingId) => {
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Óra lemondása sikertelen.',
+      message: 'Hálózati hiba. Óra lemondása sikertelen.',
     };
     return result;
   }
@@ -282,8 +303,7 @@ export const editBooking = async (bookingId, bookingData) => {
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Óra módosítása sikertelen.',
+      message: 'Hálózati hiba. Óra módosítása sikertelen.',
     };
     return result;
   }
@@ -291,14 +311,15 @@ export const editBooking = async (bookingId, bookingData) => {
 
 export const getAllLessons = async () => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/classes`);
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URI}/classes`,
+    );
     const result = await response.json();
     result.status = response.status;
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Lekérdezés sikertelen.',
+      message: 'Hálózati hiba. Lekérdezés sikertelen.',
     };
     return result;
   }
@@ -306,19 +327,21 @@ export const getAllLessons = async () => {
 
 export const getAllLessonsAdmin = async () => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/lessons/all`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URI}/lessons/all`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+        },
       },
-    });
+    );
     const result = await response.json();
     result.status = response.status;
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Lekérdezés sikertelen.',
+      message: 'Hálózati hiba. Lekérdezés sikertelen.',
     };
     return result;
   }
@@ -326,19 +349,21 @@ export const getAllLessonsAdmin = async () => {
 
 export const getMyBookings = async () => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/bookings`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URI}/bookings`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+        },
       },
-    });
+    );
     const result = await response.json();
     result.status = response.status;
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Lekérdezés sikertelen.',
+      message: 'Hálózati hiba. Lekérdezés sikertelen.',
     };
     return result;
   }
@@ -346,19 +371,21 @@ export const getMyBookings = async () => {
 
 export const getAllBookings = async () => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/bookings/all`, {
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URI}/bookings/all`,
+      {
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${localStorage.getItem('userToken')}`,
+        },
       },
-    });
+    );
     const result = await response.json();
     result.status = response.status;
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Lekérdezés sikertelen.',
+      message: 'Hálózati hiba. Lekérdezés sikertelen.',
     };
     return result;
   }
@@ -366,14 +393,15 @@ export const getAllBookings = async () => {
 
 export const getAllInstructorNames = async () => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/instructors`);
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URI}/instructors`,
+    );
     const result = await response.json();
     result.status = response.status;
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Lekérdezés sikertelen.',
+      message: 'Hálózati hiba. Lekérdezés sikertelen.',
     };
     return result;
   }
@@ -381,14 +409,15 @@ export const getAllInstructorNames = async () => {
 
 export const getAllLessonTypes = async () => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/lesson-types`);
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URI}/lesson-types`,
+    );
     const result = await response.json();
     result.status = response.status;
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Lekérdezés sikertelen.',
+      message: 'Hálózati hiba. Lekérdezés sikertelen.',
     };
     return result;
   }
@@ -396,14 +425,15 @@ export const getAllLessonTypes = async () => {
 
 export const getTickets = async () => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/tickets`);
+    const response = await fetch(
+      `${process.env.REACT_APP_BACKEND_URI}/tickets`,
+    );
     const result = await response.json();
     result.status = response.status;
     return result;
   } catch {
     const result = {
-      message:
-      'Hálózati hiba. Lekérdezés sikertelen.',
+      message: 'Hálózati hiba. Lekérdezés sikertelen.',
     };
     return result;
   }
