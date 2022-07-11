@@ -55,19 +55,11 @@ export const lessonsService = {
   async addNewLesson({
     start,
     end,
-    location,
-    price,
-    maxAttendants,
-    instructor,
     type,
   }) {
     if (
       !start
       || !end
-      || !location
-      || !price
-      || !maxAttendants
-      || !instructor
       || !type
     ) {
       throw new CustomError(400, 'Minden mező kitöltése kötelező.');
@@ -77,10 +69,6 @@ export const lessonsService = {
       type,
       start,
       end,
-      maxAttendants,
-      instructor,
-      price,
-      location,
     });
     await newLesson.save();
 
@@ -98,10 +86,6 @@ export const lessonsService = {
     if (
       !lessonData.start
       || !lessonData.end
-      || !lessonData.location
-      || !lessonData.price
-      || !lessonData.maxAttendants
-      || !lessonData.instructor
       || !lessonData.type
     ) {
       throw new CustomError(400, 'Minden mező kitöltése kötelező.');

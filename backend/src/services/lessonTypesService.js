@@ -10,4 +10,39 @@ export const lessonTypesService = {
       throw new CustomError(400, 'Hiba az óratipusok lekérése közben');
     }
   },
+  async addNewLessonType({
+    name,
+    description,
+    featuredImage,
+    location,
+    price,
+    maxAttendants,
+    instructor,
+  }) {
+    if (
+      !name
+      || !description
+      || !featuredImage
+      || !location
+      || !price
+      || !maxAttendants
+      || !instructor
+    ) {
+      throw new CustomError(400, 'Minden mező kitöltése kötelező.');
+    }
+
+    const newLesson = new LessonType({
+      name,
+      description,
+      featuredImage,
+      location,
+      price,
+      maxAttendants,
+      instructor,
+    });
+    await newLesson.save();
+
+    const result = { confirmation: 'New lessonType created' };
+    return result;
+  },
 };

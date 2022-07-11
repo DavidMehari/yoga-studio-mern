@@ -23,7 +23,9 @@ function AddLessonType() {
   const [newLessonTypeData, setNewLessonTypeData] = useState({});
 
   const [errorMessages, setErrorMessages] = useState({
-    lessonName: [],
+    name: [],
+    description: [],
+    featuredImage: [],
     location: [],
     price: [],
     maxAttendants: [],
@@ -50,7 +52,19 @@ function AddLessonType() {
   };
 
   const validators = {
-    lessonName: [
+    name: [
+      {
+        fn: isNotEmpty,
+        errorMessage: 'Nem lehet üres',
+      },
+    ],
+    description: [
+      {
+        fn: isNotEmpty,
+        errorMessage: 'Nem lehet üres',
+      },
+    ],
+    featuredImage: [
       {
         fn: isNotEmpty,
         errorMessage: 'Nem lehet üres',
@@ -111,7 +125,9 @@ function AddLessonType() {
 
   const resetErrorMessages = () => {
     setErrorMessages({
-      lessonName: [],
+      name: [],
+      description: [],
+      featuredImage: [],
       location: [],
       price: [],
       maxAttendants: [],
@@ -162,12 +178,22 @@ function AddLessonType() {
         <form id="add-lessontype-form" onSubmit={handleSubmit} noValidate>
           <FormInput
             label="Óra neve"
-            name="lessonName"
+            name="name"
             handleOnChange={(e) => handleChange(e)}
             type="text"
-            value={newLessonTypeData.lessonName}
-            errorMessages={errorMessages.lessonName}
+            value={newLessonTypeData.name}
+            errorMessages={errorMessages.name}
             wasValidated={wasValidated}
+          />
+          <FormInput
+            label="Óra leírása"
+            name="description"
+            handleOnChange={(e) => handleChange(e)}
+            value={newLessonTypeData.description}
+            errorMessages={errorMessages.location}
+            wasValidated={wasValidated}
+            multiline
+            rows={4}
           />
           <FormInput
             label="Helyszín"

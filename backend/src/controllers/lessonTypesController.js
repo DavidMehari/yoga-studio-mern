@@ -9,4 +9,12 @@ export const lessonTypesController = {
       return next(error);
     }
   },
+  async post(req, res, next) {
+    try {
+      const result = await lessonTypesService.addNewLessonType(req.body);
+      return res.status(200).json({ result });
+    } catch (error) {
+      return next(error);
+    }
+  },
 };
