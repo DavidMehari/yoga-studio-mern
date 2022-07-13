@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors';
+import multer from 'multer';
 import {
   lessonsController,
   loginController,
@@ -14,6 +15,31 @@ import authorization from '../middlewares/authorization';
 import checkIsAdmin from '../middlewares/checkIsAdmin';
 
 const router = express.Router();
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, '../uploads');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + file.originalname);
+  },
+});
+
+const fileFilter = (req, file, cb) => {
+  if (file.mimetype === 'image/jpeg' || file.mimetype === 'image/png') {
+    cb(null, true);
+  } else {
+    cb(null, false);
+  }
+};
+
+const upload = multer({
+  storage,
+  // limits: {
+  //   fileSize: 1024 * 1024 * 5,
+  // },
+  fileFilter,
+});
 
 router.use(cors());
 router.use(express.json());
@@ -37,7 +63,7 @@ router.patch('/bookings/edit/:bookingId', authorization, bookingsController.edit
 router.get('/lessons/all', authorization, checkIsAdmin, lessonsController.getAllLessonsAdmin);
 router.get('/class-details/:lessonId', authorization, checkIsAdmin, lessonsController.getLessonByIdAdmin);
 router.get('/bookings/all', authorization, checkIsAdmin, bookingsController.getAllBookings);
-router.post('/lesson-types', authorization, checkIsAdmin, lessonTypesController.post);
+router.post('/lesson-types', authorization, checkIsAdmin, upload.single('featuredImage'), lessonTypesController.post);
 router.post('/classes', authorization, checkIsAdmin, lessonsController.post);
 router.delete('/classes/:lessonId', authorization, checkIsAdmin, lessonsController.delete);
 router.patch('/classes/:lessonId', authorization, checkIsAdmin, lessonsController.patch);

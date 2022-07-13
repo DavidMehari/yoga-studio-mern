@@ -16,6 +16,7 @@ import {
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import CloseIcon from '@mui/icons-material/Close';
+import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 import FormInput from '../../components/FormInput';
 import { addNewLessonType, getAllInstructorNames } from '../../helpers/utils';
 
@@ -25,7 +26,6 @@ function AddLessonType() {
   const [errorMessages, setErrorMessages] = useState({
     name: [],
     description: [],
-    featuredImage: [],
     location: [],
     price: [],
     maxAttendants: [],
@@ -36,6 +36,9 @@ function AddLessonType() {
 
   const [sendStatus, setSendStatus] = useState('');
   const [sendError, setSendError] = useState('');
+
+  const [featuredImage, setFeaturedImage] = useState();
+  const [isImageSelected, setIsImageSelected] = useState(false);
 
   const navigate = useNavigate();
 
@@ -59,12 +62,6 @@ function AddLessonType() {
       },
     ],
     description: [
-      {
-        fn: isNotEmpty,
-        errorMessage: 'Nem lehet üres',
-      },
-    ],
-    featuredImage: [
       {
         fn: isNotEmpty,
         errorMessage: 'Nem lehet üres',
@@ -127,7 +124,6 @@ function AddLessonType() {
     setErrorMessages({
       name: [],
       description: [],
-      featuredImage: [],
       location: [],
       price: [],
       maxAttendants: [],
@@ -151,7 +147,7 @@ function AddLessonType() {
       setSendStatus('pending');
       setWasValidated(false);
 
-      const result = await addNewLessonType(newLessonTypeData);
+      const result = await addNewLessonType(newLessonTypeData, featuredImage);
       if (result.status === 200) {
         setSendStatus('success');
       } else {
@@ -168,6 +164,11 @@ function AddLessonType() {
     }));
   };
 
+  const handleImageChange = ({ target }) => {
+    setFeaturedImage(target.files[0]);
+    setIsImageSelected(true);
+  };
+
   return (
     <Container maxWidth="md" sx={{ my: 4 }}>
       <Typography variant="h2" align="center" component="h1" gutterBottom>
@@ -176,6 +177,46 @@ function AddLessonType() {
 
       <Box>
         <form id="add-lessontype-form" onSubmit={handleSubmit} noValidate>
+          <Button
+            variant="contained"
+            component="label"
+            startIcon={<CloudUploadIcon />}
+          >
+            Kép feltöltése
+            <input
+              hidden
+              accept="image/*"
+              type="file"
+              name="featuredImage"
+              onChange={handleImageChange}
+            />
+          </Button>
+          {isImageSelected ? (
+            <div>
+              <p>
+                Filename:
+                {' '}
+                {featuredImage.name}
+              </p>
+              <p>
+                Filetype:
+                {' '}
+                {featuredImage.type}
+              </p>
+              <p>
+                Size in bytes:
+                {' '}
+                {featuredImage.size}
+              </p>
+              <p>
+                lastModifiedDate:
+                {' '}
+                {featuredImage.lastModifiedDate.toLocaleDateString()}
+              </p>
+            </div>
+          ) : (
+            <p>Select a file to show details</p>
+          )}
           <FormInput
             label="Óra neve"
             name="name"
@@ -213,7 +254,9 @@ function AddLessonType() {
             errorMessages={errorMessages.price}
             wasValidated={wasValidated}
             InputProps={{
-              endAdornment: <InputAdornment position="start">Ft</InputAdornment>,
+              endAdornment: (
+                <InputAdornment position="start">Ft</InputAdornment>
+              ),
             }}
           />
           <FormInput
@@ -225,7 +268,9 @@ function AddLessonType() {
             errorMessages={errorMessages.maxAttendants}
             wasValidated={wasValidated}
             InputProps={{
-              endAdornment: <InputAdornment position="start">Fő</InputAdornment>,
+              endAdornment: (
+                <InputAdornment position="start">Fő</InputAdornment>
+              ),
             }}
           />
           <Box
@@ -250,17 +295,17 @@ function AddLessonType() {
                 name="instructor"
               >
                 {instructors.map((instructor) => (
-                  <MenuItem key={instructor._id} value={instructor._id}>{instructor.name}</MenuItem>
+                  <MenuItem key={instructor._id} value={instructor._id}>
+                    {instructor.name}
+                  </MenuItem>
                 ))}
               </Select>
               <FormHelperText>
                 {errorMessages.instructor.join(' ')}
               </FormHelperText>
             </FormControl>
-
           </Box>
-          {sendStatus && sendStatus !== 'pending'
-            && (
+          {sendStatus && sendStatus !== 'pending' && (
             <Alert
               severity={sendStatus}
               sx={{ mb: 2 }}
@@ -276,11 +321,11 @@ function AddLessonType() {
                 >
                   <CloseIcon fontSize="inherit" />
                 </IconButton>
-                  )}
+              )}
             >
               {sendError || 'Óratípus sikeresen létrehozva'}
             </Alert>
-            )}
+          )}
           <Box
             sx={{
               display: 'flex',

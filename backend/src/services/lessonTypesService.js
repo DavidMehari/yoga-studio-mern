@@ -13,16 +13,16 @@ export const lessonTypesService = {
   async addNewLessonType({
     name,
     description,
-    featuredImage,
     location,
     price,
     maxAttendants,
     instructor,
-  }) {
+  }, featuredImage) {
+    console.log(featuredImage);
+
     if (
       !name
       || !description
-      || !featuredImage
       || !location
       || !price
       || !maxAttendants
@@ -31,16 +31,16 @@ export const lessonTypesService = {
       throw new CustomError(400, 'Minden mező kitöltése kötelező.');
     }
 
-    const newLesson = new LessonType({
-      name,
-      description,
-      featuredImage,
-      location,
-      price,
-      maxAttendants,
-      instructor,
-    });
-    await newLesson.save();
+    // const newLesson = new LessonType({
+    //   name,
+    //   description,
+    //   featuredImage,
+    //   location,
+    //   price,
+    //   maxAttendants,
+    //   instructor,
+    // });
+    // await newLesson.save();
 
     const result = { confirmation: 'New lessonType created' };
     return result;

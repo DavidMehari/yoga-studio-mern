@@ -153,17 +153,23 @@ export const addNewLesson = async (formData) => {
   }
 };
 
-export const addNewLessonType = async (formData) => {
+export const addNewLessonType = async (formData, featuredImage) => {
+  console.log(formData);
+  console.log(featuredImage);
+  const formDataWithImage = new FormData();
+
+  formDataWithImage.append('featuredImage', featuredImage);
+
   try {
     const response = await fetch(
       `${process.env.REACT_APP_BACKEND_URI}/lesson-types`,
       {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/json',
+          // 'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('userToken')}`,
         },
-        body: JSON.stringify(formData),
+        body: formDataWithImage,
       },
     );
     const result = await response.json();

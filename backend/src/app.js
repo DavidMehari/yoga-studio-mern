@@ -13,6 +13,8 @@ app.use(morgan('combined', { stream: logger.stream }));
 app.use('/api', api);
 app.use('/system', system);
 
+app.use('/uploads', express.static('uploads'));
+
 app.use(errorHandler);
 
 export default app;
