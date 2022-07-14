@@ -11,7 +11,8 @@ export const lessonsService = {
         .find({ start: { $gte: startOfToday() } })
         .sort({ start: 1 })
         // .populate('instructor', 'name')
-        .populate('type');
+        // .populate('type');
+        .populate({ path: 'type', populate: { path: 'instructor', select: 'name' } });
       return allLessons;
     } catch (error) {
       throw new CustomError(400, 'Hiba az óra lekérése közben');
@@ -23,7 +24,8 @@ export const lessonsService = {
         .find({})
         .sort({ start: 1 })
         // .populate('instructor', 'name')
-        .populate('type')
+        // .populate('type')
+        .populate({ path: 'type', populate: { path: 'instructor', select: 'name' } })
         .populate('guests', 'name avatar');
       return allLessons;
     } catch (error) {
@@ -45,7 +47,8 @@ export const lessonsService = {
     try {
       const lesson = await Lesson.findById(lessonId)
         // .populate('instructor', 'name')
-        .populate('type')
+        // .populate('type')
+        .populate({ path: 'type', populate: { path: 'instructor', select: 'name' } })
         .populate('guests', 'name avatar');
       return lesson;
     } catch (error) {

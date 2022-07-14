@@ -11,7 +11,7 @@ export function isEmptyObj(obj) {
 export const registerNewUser = async (formData) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/register`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/register`,
       {
         method: 'POST',
         headers: {
@@ -37,7 +37,7 @@ export const registerNewUser = async (formData) => {
 
 export const loginUser = async (formData) => {
   try {
-    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/login`, {
+    const response = await fetch(`${process.env.REACT_APP_BACKEND_URI}/api/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export const loginUser = async (formData) => {
 export const loginWithGoogle = async (formData) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/login-google`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/login-google`,
       {
         method: 'POST',
         headers: {
@@ -81,7 +81,7 @@ export const loginWithGoogle = async (formData) => {
 export const bookLesson = async (userId, lessonId, numOfGuests) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/bookings`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/bookings`,
       {
         method: 'POST',
         headers: {
@@ -109,7 +109,7 @@ export const bookLesson = async (userId, lessonId, numOfGuests) => {
 export const sendContactMessage = async (formData) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/contact`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/contact`,
       {
         method: 'POST',
         headers: {
@@ -132,7 +132,7 @@ export const sendContactMessage = async (formData) => {
 export const addNewLesson = async (formData) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/classes`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/classes`,
       {
         method: 'POST',
         headers: {
@@ -162,7 +162,7 @@ export const addNewLessonType = async (lessonTypeData, featuredImage) => {
 
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/lesson-types`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/lesson-types`,
       {
         method: 'POST',
         headers: {
@@ -185,7 +185,7 @@ export const addNewLessonType = async (lessonTypeData, featuredImage) => {
 export const updateLesson = async (lessonId, formData) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/classes/${lessonId}`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/classes/${lessonId}`,
       {
         method: 'PATCH',
         headers: {
@@ -209,7 +209,7 @@ export const updateLesson = async (lessonId, formData) => {
 export const getLesson = async (lessonId) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/classes/${lessonId}`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/classes/${lessonId}`,
     );
     const result = await response.json();
     result.status = response.status;
@@ -225,7 +225,7 @@ export const getLesson = async (lessonId) => {
 export const getLessonAdmin = async (lessonId) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/classes/${lessonId}`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/classes/${lessonId}`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -247,7 +247,7 @@ export const getLessonAdmin = async (lessonId) => {
 export const deleteLesson = async (lessonId) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/classes/${lessonId}`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/classes/${lessonId}`,
       {
         method: 'DELETE',
         headers: {
@@ -270,7 +270,7 @@ export const deleteLesson = async (lessonId) => {
 export const cancelBooking = async (bookingId) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/bookings/cancel/${bookingId}`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/bookings/cancel/${bookingId}`,
       {
         method: 'PATCH',
         headers: {
@@ -293,7 +293,7 @@ export const cancelBooking = async (bookingId) => {
 export const editBooking = async (bookingId, bookingData) => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/bookings/edit/${bookingId}`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/bookings/edit/${bookingId}`,
       {
         method: 'PATCH',
         headers: {
@@ -317,7 +317,7 @@ export const editBooking = async (bookingId, bookingData) => {
 export const getAllLessons = async () => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/classes`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/classes`,
     );
     const result = await response.json();
     result.status = response.status;
@@ -333,7 +333,7 @@ export const getAllLessons = async () => {
 export const getAllLessonsAdmin = async () => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/lessons/all`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/lessons/all`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -355,7 +355,7 @@ export const getAllLessonsAdmin = async () => {
 export const getMyBookings = async () => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/bookings`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/bookings`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -377,7 +377,7 @@ export const getMyBookings = async () => {
 export const getAllBookings = async () => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/bookings/all`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/bookings/all`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -399,7 +399,7 @@ export const getAllBookings = async () => {
 export const getAllInstructorNames = async () => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/instructors`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/instructors`,
     );
     const result = await response.json();
     result.status = response.status;
@@ -415,7 +415,7 @@ export const getAllInstructorNames = async () => {
 export const getAllLessonTypes = async () => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/lesson-types`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/lesson-types`,
     );
     const result = await response.json();
     result.status = response.status;
@@ -431,7 +431,7 @@ export const getAllLessonTypes = async () => {
 export const getTickets = async () => {
   try {
     const response = await fetch(
-      `${process.env.REACT_APP_BACKEND_URI}/tickets`,
+      `${process.env.REACT_APP_BACKEND_URI}/api/tickets`,
     );
     const result = await response.json();
     result.status = response.status;

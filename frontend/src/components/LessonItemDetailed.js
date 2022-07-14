@@ -43,11 +43,7 @@ function LessonItemDetailed({
   const {
     start,
     end,
-    price,
-    location,
-    instructor,
     type,
-    maxAttendants,
     guests,
   } = lesson;
   const startDate = new Date(start);
@@ -197,7 +193,7 @@ function LessonItemDetailed({
                   </Avatar>
                   <Box sx={{ display: 'block' }}>
                     <Typography sx={{ fontWeight: 'medium' }}>Ár</Typography>
-                    <Typography variant="body2">{`${price}Ft`}</Typography>
+                    <Typography variant="body2">{`${type?.price}Ft`}</Typography>
                   </Box>
                 </Box>
               </Grid>
@@ -217,7 +213,7 @@ function LessonItemDetailed({
                     <Typography sx={{ fontWeight: 'medium' }}>
                       Location
                     </Typography>
-                    <Typography variant="body2">{location}</Typography>
+                    <Typography variant="body2">{type?.location}</Typography>
                   </Box>
                 </Box>
               </Grid>
@@ -237,7 +233,7 @@ function LessonItemDetailed({
                     <Typography sx={{ fontWeight: 'medium' }}>
                       Oktató
                     </Typography>
-                    <Typography variant="body2">{instructor?.name}</Typography>
+                    <Typography variant="body2">{type?.instructor.name}</Typography>
                   </Box>
                 </Box>
               </Grid>
@@ -272,9 +268,9 @@ function LessonItemDetailed({
                 variant="contained"
                 size="large"
                 onClick={executeScroll}
-                disabled={guests?.length >= maxAttendants}
+                disabled={guests?.length >= type?.maxAttendants}
               >
-                {guests?.length >= maxAttendants ? 'Betelt' : 'Foglalás'}
+                {guests?.length >= type?.maxAttendants ? 'Betelt' : 'Foglalás'}
               </Button>
             </Stack>
           </Box>
@@ -284,14 +280,15 @@ function LessonItemDetailed({
             sx={{
               width: '100%',
             }}
-            src={type?.featuredImage}
+            // src={type?.featuredImage}
+            src={`${process.env.REACT_APP_BACKEND_URI}/uploads/${type?.featuredImage}`}
             alt="yoga detailed"
           />
           <Box sx={{ p: 1 }}>
             <Typography variant="h5">{type?.name}</Typography>
             <DialogContentText>{type?.description}</DialogContentText>
           </Box>
-          {guests?.length < maxAttendants ? (
+          {guests?.length < type?.maxAttendants ? (
             <Box>
               {!activeUser ? (
                 <Box
@@ -409,7 +406,7 @@ function LessonItemDetailed({
             startIcon={<CalendarMonthIcon />}
             variant="contained"
             onClick={handleBookLesson}
-            disabled={!!bookingStatus || guests?.length >= maxAttendants || !activeUser}
+            disabled={!!bookingStatus || guests?.length >= type?.maxAttendants || !activeUser}
           >
             Foglalás
           </LoadingButton>

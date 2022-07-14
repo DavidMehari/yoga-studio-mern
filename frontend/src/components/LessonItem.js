@@ -23,9 +23,8 @@ function LessonItem({ lesson, openLessonDetails, refreshData }) {
   const {
     start,
     end,
-    maxAttendants,
-    instructor: { name: instructorName },
     guests,
+    type,
   } = lesson;
   const startDate = new Date(start);
   const endDate = new Date(end);
@@ -38,6 +37,8 @@ function LessonItem({ lesson, openLessonDetails, refreshData }) {
   const handleClickOpen = () => {
     setOpen(true);
   };
+
+  console.log(lesson);
 
   const handleLessonDelete = async (lessonId) => {
     const result = await deleteLesson(lessonId);
@@ -68,8 +69,8 @@ function LessonItem({ lesson, openLessonDetails, refreshData }) {
             sx={{
               width: 200, aspectRatio: '16/10', flexGrow: 1, minWidth: '50%',
             }}
-            image={lesson?.type.featuredImage}
-            alt={lesson?.type.name}
+            image={`${process.env.REACT_APP_BACKEND_URI}/uploads/${type.featuredImage}`}
+            alt={type.name}
           />
 
           <CardContent
@@ -83,9 +84,9 @@ function LessonItem({ lesson, openLessonDetails, refreshData }) {
           >
             <Chip
               size="small"
-              color={guests.length < maxAttendants ? 'success' : 'error'}
+              color={guests.length < type.maxAttendants ? 'success' : 'error'}
               label={
-                  guests.length < maxAttendants ? `${maxAttendants - guests.length} hely van még` : 'Betelt'
+                  guests.length < type.maxAttendants ? `${type.maxAttendants - guests.length} hely van még` : 'Betelt'
                   }
             />
             <Typography
@@ -108,7 +109,7 @@ function LessonItem({ lesson, openLessonDetails, refreshData }) {
               )} - ${formatInTimeZone(endDate, 'Europe/Budapest', 'HH:mm')}`}
             </Typography>
             <Typography component="div" variant="h5" sx={{ wordWrap: 'break-word' }}>
-              {lesson?.type.name}
+              {type.name}
             </Typography>
             <Typography component="div" variant="body1">
               {startDate.toLocaleDateString('hu-HU', {
@@ -121,7 +122,7 @@ function LessonItem({ lesson, openLessonDetails, refreshData }) {
               component="div"
               textTransform="capitalize"
             >
-              {`Oktató: ${instructorName}`}
+              {`Oktató: ${type.instructor?.name}`}
             </Typography>
           </CardContent>
         </CardActionArea>
