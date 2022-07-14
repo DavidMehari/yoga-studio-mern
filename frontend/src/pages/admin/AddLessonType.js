@@ -39,12 +39,26 @@ function AddLessonType() {
 
   const [featuredImage, setFeaturedImage] = useState();
   const [isImageSelected, setIsImageSelected] = useState(false);
+  const [preview, setPreview] = useState();
 
   const navigate = useNavigate();
 
   useEffect(() => {
     getAllInstructorNames().then((result) => setInstructors(result.instructors));
   }, []);
+
+  useEffect(() => {
+    if (!featuredImage) {
+      setPreview(undefined);
+      return;
+    }
+
+    const objectUrl = URL.createObjectURL(featuredImage);
+    setPreview(objectUrl);
+
+    // eslint-disable-next-line consistent-return
+    return () => URL.revokeObjectURL(objectUrl);
+  }, [featuredImage]);
 
   const isNotEmpty = (input = '') => {
     return input !== '';
@@ -165,6 +179,12 @@ function AddLessonType() {
   };
 
   const handleImageChange = ({ target }) => {
+    if (!target.files || target.files.length === 0) {
+      setFeaturedImage(undefined);
+      setIsImageSelected(false);
+      return;
+    }
+
     setFeaturedImage(target.files[0]);
     setIsImageSelected(true);
   };
@@ -192,30 +212,21 @@ function AddLessonType() {
             />
           </Button>
           {isImageSelected ? (
-            <div>
-              <p>
-                Filename:
+            <Box my={2}>
+              <Box
+                width={250}
+                component="img"
+                src={preview}
+                alt="selectedImage"
+              />
+              <Typography variant="body2">
+                Fájlnév:
                 {' '}
                 {featuredImage.name}
-              </p>
-              <p>
-                Filetype:
-                {' '}
-                {featuredImage.type}
-              </p>
-              <p>
-                Size in bytes:
-                {' '}
-                {featuredImage.size}
-              </p>
-              <p>
-                lastModifiedDate:
-                {' '}
-                {featuredImage.lastModifiedDate.toLocaleDateString()}
-              </p>
-            </div>
+              </Typography>
+            </Box>
           ) : (
-            <p>Select a file to show details</p>
+            <Typography variant="body2">Nincs kép kiválasztva</Typography>
           )}
           <FormInput
             label="Óra neve"
