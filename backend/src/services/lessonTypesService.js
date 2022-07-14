@@ -19,6 +19,11 @@ export const lessonTypesService = {
     instructor,
   }, featuredImage) {
     console.log(featuredImage);
+    console.log(name, description, location, price, maxAttendants, instructor);
+
+    if (featuredImage.mimetype !== 'image/jpeg' && featuredImage.mimetype !== 'image/png') {
+      throw new CustomError(400, 'Kép kiterjesztés nem megfelelő. (jpeg/png)');
+    }
 
     if (
       !name
@@ -31,16 +36,16 @@ export const lessonTypesService = {
       throw new CustomError(400, 'Minden mező kitöltése kötelező.');
     }
 
-    // const newLesson = new LessonType({
-    //   name,
-    //   description,
-    //   featuredImage,
-    //   location,
-    //   price,
-    //   maxAttendants,
-    //   instructor,
-    // });
-    // await newLesson.save();
+    const newLessonType = new LessonType({
+      name,
+      description,
+      featuredImage: featuredImage.filename,
+      location,
+      price,
+      maxAttendants,
+      instructor,
+    });
+    await newLessonType.save();
 
     const result = { confirmation: 'New lessonType created' };
     return result;

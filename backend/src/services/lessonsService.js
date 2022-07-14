@@ -10,7 +10,7 @@ export const lessonsService = {
       const allLessons = await Lesson
         .find({ start: { $gte: startOfToday() } })
         .sort({ start: 1 })
-        .populate('instructor', 'name')
+        // .populate('instructor', 'name')
         .populate('type');
       return allLessons;
     } catch (error) {
@@ -22,7 +22,7 @@ export const lessonsService = {
       const allLessons = await Lesson
         .find({})
         .sort({ start: 1 })
-        .populate('instructor', 'name')
+        // .populate('instructor', 'name')
         .populate('type')
         .populate('guests', 'name avatar');
       return allLessons;
@@ -44,7 +44,7 @@ export const lessonsService = {
     if (!isObjectIdOrHexString(lessonId)) throw new CustomError(400, 'Nem valós lessonId');
     try {
       const lesson = await Lesson.findById(lessonId)
-        .populate('instructor', 'name')
+        // .populate('instructor', 'name')
         .populate('type')
         .populate('guests', 'name avatar');
       return lesson;

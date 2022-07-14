@@ -153,12 +153,12 @@ export const addNewLesson = async (formData) => {
   }
 };
 
-export const addNewLessonType = async (formData, featuredImage) => {
-  console.log(formData);
-  console.log(featuredImage);
-  const formDataWithImage = new FormData();
+export const addNewLessonType = async (lessonTypeData, featuredImage) => {
+  const formData = new FormData();
 
-  formDataWithImage.append('featuredImage', featuredImage);
+  Object.keys(lessonTypeData).forEach((key) => formData.append(key, lessonTypeData[key]));
+
+  formData.append('featuredImage', featuredImage);
 
   try {
     const response = await fetch(
@@ -166,10 +166,9 @@ export const addNewLessonType = async (formData, featuredImage) => {
       {
         method: 'POST',
         headers: {
-          // 'Content-Type': 'application/json',
           Authorization: `Bearer ${localStorage.getItem('userToken')}`,
         },
-        body: formDataWithImage,
+        body: formData,
       },
     );
     const result = await response.json();

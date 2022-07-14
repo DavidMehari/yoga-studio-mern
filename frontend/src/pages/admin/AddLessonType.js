@@ -176,7 +176,7 @@ function AddLessonType() {
       </Typography>
 
       <Box>
-        <form id="add-lessontype-form" onSubmit={handleSubmit} noValidate>
+        <form id="add-lessontype-form" onSubmit={handleSubmit} noValidate encType="multipart/form-data">
           <Button
             variant="contained"
             component="label"
