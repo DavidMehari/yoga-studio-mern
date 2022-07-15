@@ -4,16 +4,22 @@ import {
   Alert,
   Box,
   Button,
+  Checkbox,
   Container,
   FormControl,
+  FormControlLabel,
+  FormGroup,
   FormHelperText,
   IconButton,
   InputLabel,
   MenuItem,
   Select,
+  Stack,
   TextField,
   Typography,
 } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import { DateTimePicker } from '@mui/x-date-pickers/DateTimePicker';
 import { LocalizationProvider } from '@mui/x-date-pickers';
 import AdapterDateFns from '@mui/lab/AdapterDateFns';
@@ -35,6 +41,9 @@ function AddLesson() {
 
   const [sendStatus, setSendStatus] = useState('');
   const [sendError, setSendError] = useState('');
+
+  const [isRepeatingLesson, setIsRepeatingLesson] = useState(false);
+  const [repeatFor, setRepeatFor] = useState(1);
 
   const navigate = useNavigate();
 
@@ -136,6 +145,14 @@ function AddLesson() {
     }));
   };
 
+  const handleCheckboxChange = ({ target: { name, checked } }) => {
+    if (name === 'isRepeating') setIsRepeatingLesson(checked);
+  };
+
+  const handleNumChange = (operator) => {
+    setRepeatFor((prev) => (operator === '+' ? prev + 1 : prev - 1));
+  };
+
   return (
     <Container maxWidth="md" sx={{ my: 4 }}>
       <Typography variant="h2" align="center" component="h1" gutterBottom>
@@ -183,6 +200,37 @@ function AddLesson() {
             </LocalizationProvider>
           </Box>
 
+          <FormGroup>
+            <FormControlLabel control={<Checkbox name="isRepeating" onChange={handleCheckboxChange} />} label="Ismétlődő óra" />
+          </FormGroup>
+
+          {isRepeatingLesson && (
+            <Box>
+              <Typography variant="body1">Hány héten keresztül ismétlődik?</Typography>
+              <Typography variant="body2">(A kiválasztott dátumot követő hettől kezdve)</Typography>
+              <Stack direction="row" alignItems="center" spacing={1}>
+                <IconButton
+                  aria-label="add-week"
+                  color="primary"
+                  onClick={() => handleNumChange('+')}
+                >
+                  <AddIcon />
+                </IconButton>
+                <Box component="span" sx={{ p: 1 }}>
+                  <Typography variant="body1">{repeatFor}</Typography>
+                </Box>
+                <IconButton
+                  disabled={repeatFor < 2}
+                  aria-label="remove-week"
+                  color="primary"
+                  onClick={() => handleNumChange('-')}
+                >
+                  <RemoveIcon />
+                </IconButton>
+              </Stack>
+            </Box>
+          )}
+
           <Box
             sx={{
               display: 'flex',
@@ -211,6 +259,7 @@ function AddLesson() {
               </Select>
               <FormHelperText>{errorMessages.type.join(' ')}</FormHelperText>
             </FormControl>
+
           </Box>
           {sendStatus && sendStatus !== 'pending'
             && (
