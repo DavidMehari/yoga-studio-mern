@@ -66,8 +66,8 @@ function BookingDetailsAdmin({ booking }) {
               }}
             >
               <SellIcon fontSize="small" />
-              {`Ár: ${lesson.price}Ft`}
-              {numOfGuests > 1 && ` / fő (Össz: ${lesson.price * numOfGuests}Ft)`}
+              {`Ár: ${lesson.type.price}Ft`}
+              {numOfGuests > 1 && ` / fő (Össz: ${lesson.type.price * numOfGuests}Ft)`}
             </Typography>
             <Box bgcolor={grey[200]}>
 
@@ -134,7 +134,7 @@ function BookingDetailsAdmin({ booking }) {
                 >
 
                   <SelfImprovementIcon fontSize="small" />
-                  {`Oktató: ${lesson.instructor.name}`}
+                  {`Oktató: ${lesson.type.instructor.name}`}
                 </Box>
                 <Box
                   sx={{
@@ -147,7 +147,7 @@ function BookingDetailsAdmin({ booking }) {
                 >
 
                   <LocationOnIcon fontSize="small" />
-                  {lesson.location}
+                  {lesson.type.location}
                 </Box>
               </Typography>
             </Box>

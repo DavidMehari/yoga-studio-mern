@@ -166,7 +166,7 @@ function About() {
                 <CardMedia
                   height="300px"
                   component="img"
-                  image={lessonType.featuredImage}
+                  image={`${process.env.REACT_APP_BACKEND_URI}/uploads/${lessonType.featuredImage}`}
                   alt={lessonType.name}
                 />
                 <CardContent sx={{ flexGrow: 1 }}>

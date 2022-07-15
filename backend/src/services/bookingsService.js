@@ -10,7 +10,7 @@ export const bookingsService = {
     if (!isObjectIdOrHexString(userId)) throw new CustomError(400, 'Nem valós userId');
     try {
       const userBookings = await Booking.find({ user: userId })
-        .populate({ path: 'lesson', populate: { path: 'instructor type', select: 'name' } });
+        .populate({ path: 'lesson', populate: { path: 'type' } });
       return userBookings;
     } catch (error) {
       throw new CustomError(400, 'Hiba történt a foglalások lekérése közben');
@@ -20,7 +20,7 @@ export const bookingsService = {
     try {
       const allBookings = await Booking.find({})
         .populate('user', 'name')
-        .populate({ path: 'lesson', populate: { path: 'instructor type', select: 'name' } })
+        .populate({ path: 'lesson', populate: { path: 'type', populate: { path: 'instructor' } } })
         .sort({ createdAt: 'desc' });
       return allBookings;
     } catch (error) {
@@ -32,7 +32,7 @@ export const bookingsService = {
     try {
       const booking = await Booking.findById(bookingId)
         .populate('user', 'name email')
-        .populate('lesson', 'name location start price');
+        .populate({ path: 'lesson', populate: { path: 'type' } });
       return booking;
     } catch (error) {
       throw new CustomError(400, 'Hiba történt a foglalások lekérése közben');

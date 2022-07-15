@@ -62,7 +62,7 @@ function BookingDetailsGuest({ booking }) {
           }}
         >
           <SelfImprovementIcon fontSize="small" />
-          {`Oktató: ${lesson.instructor.name}`}
+          {`Oktató: ${lesson.type.instructor.name}`}
         </Typography>
         <Typography
           variant="subtitle1"
@@ -78,7 +78,7 @@ function BookingDetailsGuest({ booking }) {
           }}
         >
           <LocationOnIcon fontSize="small" />
-          {lesson.location}
+          {lesson.type.location}
         </Typography>
 
         <Typography
@@ -110,8 +110,8 @@ function BookingDetailsGuest({ booking }) {
           }}
         >
           <SellIcon fontSize="small" />
-          {`Price: ${lesson.price}Ft`}
-          {numOfGuests > 1 && ` / fő (Össz: ${lesson.price * numOfGuests}Ft)`}
+          {`Price: ${lesson.type.price}Ft`}
+          {numOfGuests > 1 && ` / fő (Össz: ${lesson.type.price * numOfGuests}Ft)`}
         </Typography>
       </CardContent>
     </Box>

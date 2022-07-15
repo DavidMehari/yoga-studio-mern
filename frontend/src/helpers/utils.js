@@ -343,6 +343,7 @@ export const getAllLessonsAdmin = async () => {
     );
     const result = await response.json();
     result.status = response.status;
+    console.log(result);
     return result;
   } catch {
     const result = {

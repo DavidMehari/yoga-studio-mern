@@ -45,7 +45,7 @@ function Filters({
     switch (activeFilter) {
       case 'instructor':
         setFilteredBookings(() => bookings.filter(
-          (booking) => booking.lesson.instructor._id === filterValue,
+          (booking) => booking.lesson.type.instructor._id === filterValue,
         ));
         break;
       case 'type':

@@ -25,10 +25,8 @@ function LessonItemAdmin({ lesson, refreshData }) {
   const {
     start,
     end,
-    maxAttendants,
     guests,
     type,
-    instructor: { name: instructorName },
   } = lesson;
   const startDate = new Date(start);
   const endDate = new Date(end);
@@ -72,7 +70,7 @@ function LessonItemAdmin({ lesson, refreshData }) {
           <CardMedia
             component="img"
             sx={{ width: 200, aspectRatio: '16/10', flexGrow: 1 }}
-            image={lesson?.type.featuredImage}
+            image={`${process.env.REACT_APP_BACKEND_URI}/uploads/${lesson?.type.featuredImage}`}
             alt={lesson?.type.name}
           />
 
@@ -86,9 +84,9 @@ function LessonItemAdmin({ lesson, refreshData }) {
           >
             <Chip
               size="small"
-              color={guests.length < maxAttendants ? 'success' : 'error'}
+              color={guests.length < type.maxAttendants ? 'success' : 'error'}
               label={
-                guests.length < maxAttendants ? `${maxAttendants - guests.length} hely van még` : 'Betelt'
+                guests.length < type.maxAttendants ? `${type.maxAttendants - guests.length} hely van még` : 'Betelt'
                 }
             />
             <Typography
@@ -124,7 +122,7 @@ function LessonItemAdmin({ lesson, refreshData }) {
               component="div"
               textTransform="capitalize"
             >
-              {`Oktató: ${instructorName}`}
+              {`Oktató: ${type.instructor.name}`}
             </Typography>
           </CardContent>
         </CardActionArea>
