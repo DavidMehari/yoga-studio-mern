@@ -119,7 +119,6 @@ function AddLesson() {
     const formIsValid = reportFormValidity();
     if (formIsValid) {
       setSendStatus('pending');
-
       const result = await addNewLesson(newLessonData);
       if (result.status === 200) {
         setSendStatus('success');
