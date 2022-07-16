@@ -30,7 +30,9 @@ import CloseIcon from '@mui/icons-material/Close';
 import { addNewLesson, getAllLessonTypes } from '../../helpers/utils';
 
 function AddLesson() {
-  const [newLessonData, setNewLessonData] = useState({ start: '', end: '' });
+  const [newLessonData, setNewLessonData] = useState({
+    start: '', end: '', repeatFor: 1, isRepeating: false,
+  });
 
   const [errorMessages, setErrorMessages] = useState({
     type: [],
@@ -41,9 +43,6 @@ function AddLesson() {
 
   const [sendStatus, setSendStatus] = useState('');
   const [sendError, setSendError] = useState('');
-
-  const [isRepeatingLesson, setIsRepeatingLesson] = useState(false);
-  const [repeatFor, setRepeatFor] = useState(1);
 
   const navigate = useNavigate();
 
@@ -146,11 +145,17 @@ function AddLesson() {
   };
 
   const handleCheckboxChange = ({ target: { name, checked } }) => {
-    if (name === 'isRepeating') setIsRepeatingLesson(checked);
+    setNewLessonData((prev) => ({
+      ...prev,
+      [name]: checked,
+    }));
   };
 
   const handleNumChange = (operator) => {
-    setRepeatFor((prev) => (operator === '+' ? prev + 1 : prev - 1));
+    setNewLessonData((prev) => ({
+      ...prev,
+      repeatFor: operator === '+' ? prev.repeatFor + 1 : prev.repeatFor - 1,
+    }));
   };
 
   return (
@@ -204,7 +209,7 @@ function AddLesson() {
             <FormControlLabel control={<Checkbox name="isRepeating" onChange={handleCheckboxChange} />} label="Ismétlődő óra" />
           </FormGroup>
 
-          {isRepeatingLesson && (
+          {newLessonData.isRepeating && (
             <Box>
               <Typography variant="body1">Hány héten keresztül ismétlődik?</Typography>
               <Typography variant="body2">(A kiválasztott dátumot követő hettől kezdve)</Typography>
@@ -217,10 +222,10 @@ function AddLesson() {
                   <AddIcon />
                 </IconButton>
                 <Box component="span" sx={{ p: 1 }}>
-                  <Typography variant="body1">{repeatFor}</Typography>
+                  <Typography variant="body1">{newLessonData.repeatFor}</Typography>
                 </Box>
                 <IconButton
-                  disabled={repeatFor < 2}
+                  disabled={newLessonData.repeatFor < 2}
                   aria-label="remove-week"
                   color="primary"
                   onClick={() => handleNumChange('-')}

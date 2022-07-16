@@ -59,6 +59,8 @@ export const lessonsService = {
     start,
     end,
     type,
+    isRepeating,
+    repeatFor,
   }) {
     if (
       !start
@@ -67,6 +69,8 @@ export const lessonsService = {
     ) {
       throw new CustomError(400, 'Minden mező kitöltése kötelező.');
     }
+
+    console.log(isRepeating, repeatFor);
 
     const newLesson = new Lesson({
       type,
