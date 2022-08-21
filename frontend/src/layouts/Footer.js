@@ -48,7 +48,7 @@ function Footer() {
               color: 'whitesmoke',
             }}
           >
-            Yoga Studio
+            Fusion Yoga Studio
           </Typography>
         </Box>
 
@@ -61,7 +61,7 @@ function Footer() {
             fontWeight={200}
             py={2}
           >
-            Yoga Studio
+            Fusion Yoga Studio
           </Typography>
 
           <Typography
@@ -78,9 +78,11 @@ function Footer() {
             }}
           >
             <LocationOnIcon fontSize="small" />
-            Nyugati tér 18. I.emelet 6
+            Gál Tibor Fúzió
             <br />
-            1045 Budapest
+            Csiky Sándor u. 10
+            <br />
+            3300, Eger
           </Typography>
 
           <Typography
