@@ -1,4 +1,4 @@
-import { startOfToday } from 'date-fns';
+import { addWeeks, startOfToday } from 'date-fns';
 import { isObjectIdOrHexString } from 'mongoose';
 import Booking from '../models/Booking';
 import Lesson from '../models/Lesson';
@@ -72,6 +72,19 @@ export const lessonsService = {
 
     console.log(isRepeating, repeatFor);
 
+    if (isRepeating) {
+      const newLessonsArr = [];
+      for (let i = 0; i <= repeatFor; i += 1) {
+        newLessonsArr.push({
+          type,
+          start: addWeeks(new Date(start), i),
+          end: addWeeks(new Date(end), i),
+        });
+      }
+      await Lesson.insertMany(newLessonsArr);
+      console.log(newLessonsArr);
+      return { confirmation: 'New lessons created' };
+    }
     const newLesson = new Lesson({
       type,
       start,
@@ -79,8 +92,16 @@ export const lessonsService = {
     });
     await newLesson.save();
 
-    const result = { confirmation: 'New lesson created' };
-    return result;
+    return { confirmation: 'New lesson created' };
+
+    // const newLesson = new Lesson({
+    //   type,
+    //   start,
+    //   end,
+    // });
+    // await newLesson.save();
+
+    // return result;
   },
   async updateLesson(lessonId, lessonData) {
     if (!isObjectIdOrHexString(lessonId)) throw new CustomError(400, 'Nem valós lessonId');
