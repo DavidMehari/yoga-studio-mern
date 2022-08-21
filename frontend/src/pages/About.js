@@ -5,7 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Box, Divider } from '@mui/material';
+import { Divider } from '@mui/material';
 import { getAllLessonTypes } from '../helpers/utils';
 
 function About() {
@@ -19,9 +19,9 @@ function About() {
     <>
       <Container maxWidth="md" sx={{ my: 4 }}>
         <Typography variant="h2" align="center" component="h1" gutterBottom>
-          Rólunk
+          Oktatóink
         </Typography>
-        <Typography
+        {/* <Typography
           variant="h5"
           align="center"
           color="text.secondary"
@@ -31,10 +31,10 @@ function About() {
           enim quia dolor odio quod sequi quisquam autem asperiores? Facilis
           minima quibusdam, velit quae voluptas dolorum deleniti inventore
           maxime perferendis porro praesentium.
-        </Typography>
+        </Typography> */}
       </Container>
 
-      <Box
+      {/* <Box
         sx={{
           width: '100%',
           maxWidth: 'sm',
@@ -49,21 +49,20 @@ function About() {
           alt="about-us"
         />
       </Box>
-      <Divider variant="middle" />
+      <Divider variant="middle" /> */}
 
       <Container maxWidth="md" sx={{ mt: 8 }}>
-        <Typography variant="h4" align="center" component="h2" gutterBottom>
+        {/* <Typography variant="h4" align="center" component="h2" gutterBottom>
           Oktatóink
-        </Typography>
+        </Typography> */}
         <Typography
           variant="h5"
           align="center"
           color="text.secondary"
           paragraph
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
-          eligendi esse dignissimos. Ad repellat dolorem velit in blanditiis
-          atque perspiciatis?
+          Magasan képzett szakemberek, akik természetesen folyamatosan képzik
+          magukat a szinvonalasabb oktatás elérése érdekében.
         </Typography>
       </Container>
 
@@ -76,16 +75,31 @@ function About() {
               <CardMedia
                 height="400px"
                 component="img"
-                image="https://media.istockphoto.com/photos/portrait-of-a-yogi-doing-breathing-exercises-picture-id1336154392?b=1&k=20&m=1336154392&s=170667a&w=0&h=GT8g-Eb7W1dxW_5kpCnPiFsncJ3_hr3CAQ96lNJWhaY="
+                image="/trainers/eniko-yoga-about.jpg"
                 alt="random"
               />
               <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Enikő
+                <Typography variant="h5" component="h2">
+                  Venczel Enikő
+                </Typography>
+                <Typography gutterBottom variant="subtitle2">
+                  Vezető, Hatha Jóga oktató, Aerial Yoga Trapeze oktató,
+                  Gerinctréner
                 </Typography>
                 <Typography>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Corrupti, dolores!
+                  Bár közgazdászként végeztem, de valójában soha nem dolgoztam a
+                  szakmámban. A sport természetesen folyamatosan az életem része
+                  volt, de amikor a jogával találkoztam először sajnos a stressz
+                  is. Többet kerestem mint mozgás. A jóga ezt adta meg nekem,
+                  hogy ki tudtam kapcsolni az elmémet a folyamatos gondolkozást,
+                  agyalást. És ekkor tudásult bennem az is, hogy gyakorlatilag
+                  egész általános iskolás koromtól kezdve csak ültem, merev
+                  voltam, gerinc ferdülésem is kialukult a mindennapos helytelen
+                  testtartastól. Hálás vagyok hogy időben életem részévé vált a
+                  jóga, mert sokat a minden napokban is. Mind fizikálisan mind
+                  mentálisan. Ha te is már eljutottál oda, hogy változtatni
+                  szeretnél és érzed hogy többre van szükséged jelentkezz be
+                  hozzám valamelyik órámra.
                 </Typography>
               </CardContent>
             </Card>
@@ -98,16 +112,26 @@ function About() {
               <CardMedia
                 height="400px"
                 component="img"
-                image="https://vinmec-prod.s3.amazonaws.com/images/20210127_034049_102483_yoga.max-1800x1800.jpg"
+                image="/trainers/nancy-yoga-about.jpg"
                 alt="random"
               />
               <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Olga
+                <Typography variant="h5" component="h2">
+                  Gávai Nancy
+                </Typography>
+                <Typography gutterBottom variant="subtitle2">
+                  Ösztöndíjas Jógaoktató, Mesterdiplomás Testnevelő Tanár
                 </Typography>
                 <Typography>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero,
-                  dolore?
+                  Ahogy sokan mások, én sem találtam a helyem, ebben a nyüzsgő,
+                  rohanó világban. Aztán elkezdődött valami. Egyetemi éveim
+                  alatt, ösztöndíj program keretein belül elutaztam a
+                  Kanári-szigetekre, ahol egy évet töltöttem. Itt ismerkedtem
+                  meg a Jógával és a Meditációval. Hatalmas, pozitív változás
+                  következett be az életembe. Ezután éreztem, hogy oktatni és
+                  fejlődni szeretnék. Több éve érzem, hogy a Világnak szüksége
+                  van fejlődésre, lelki & testi szinten is. Ezért is nyitotta
+                  meg kapuit a Nancy Yoga • EGER.
                 </Typography>
               </CardContent>
             </Card>
@@ -124,11 +148,16 @@ function About() {
                 alt="random"
               />
               <CardContent sx={{ flexGrow: 1 }}>
-                <Typography gutterBottom variant="h5" component="h2">
-                  Vivien
+                <Typography variant="h5" component="h2">
+                  Vizslán Brigitta
+                </Typography>
+                <Typography gutterBottom variant="subtitle2">
+                  Gyermekjóga oktató
                 </Typography>
                 <Typography>
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla, dolor.
+                  8 évig dolgozotam óvodában, most jelenleg gyermek
+                  táboroztatással foglalkozom, és e mellett gyermekjóga órákat
+                  tartok.
                 </Typography>
               </CardContent>
             </Card>
@@ -140,16 +169,17 @@ function About() {
 
       <Container maxWidth="md" sx={{ mt: 8 }}>
         <Typography variant="h4" align="center" component="h2" gutterBottom>
-          Óratípusok
+          Óráink
         </Typography>
-        <Typography
+        {/* <Typography
           variant="h5"
           align="center"
           color="text.secondary"
           paragraph
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia, debitis!
-        </Typography>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia,
+          debitis!
+        </Typography> */}
       </Container>
 
       <Container sx={{ py: 8 }} maxWidth="md">

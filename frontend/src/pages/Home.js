@@ -21,23 +21,50 @@ function Home() {
         }}
       />
 
-      <Container maxWidth="md" sx={{ my: 4 }}>
-        <Typography variant="h2" align="center" component="h1" gutterBottom>
-          Yoga Studio
+      <Container maxWidth="md" sx={{ my: 5 }}>
+        <Typography variant="h2" align="center" component="h1">
+          Fusion Yoga Studio
+        </Typography>
+        <Typography
+          variant="h5"
+          align="center"
+          component="h2"
+          mb={3}
+          fontWeight={300}
+          color="text.secondary"
+        >
+          Modern Jóga Stúdió a belváros szívében
         </Typography>
         <Typography
           variant="h5"
           align="center"
           color="text.secondary"
           paragraph
+          my={6}
         >
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi iste
-          eum perferendis vel dicta adipisci animi earum est hic sunt quis ex
-          excepturi quibusdam reprehenderit asperiores nostrum dignissimos,
-          vitae dolorum!
+          Egyéni, csoportos, talaj és levegő jóga órákkal várunk szinte a hét
+          minden napján.
         </Typography>
 
-        <Box my={4} width="100%" pt="66.66%" position="relative" overflow="hidden">
+        {/* <Divider variant="middle" /> */}
+
+        <Typography
+          variant="body1"
+          align="center"
+          color="text.secondary"
+          my={3}
+        >
+          &quot;A jóga olyan fény, amely ha egyszer kigyúl, sosem halványul el. Minél
+          többet gyakoroljuk annál ragyogóbb lesz.&quot; B.K.S Iyengar
+        </Typography>
+
+        {/* <Box
+          my={4}
+          width="100%"
+          pt="66.66%"
+          position="relative"
+          overflow="hidden"
+        >
           <iframe
             width="100%"
             height="100%"
@@ -45,10 +72,10 @@ function Home() {
             src="https://www.youtube.com/embed/JC5iwJri06M"
             title="YouTube video player"
             frameBorder="0"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allow="autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
           />
-        </Box>
+        </Box> */}
       </Container>
 
       <Divider variant="middle" />
