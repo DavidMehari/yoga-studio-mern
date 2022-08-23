@@ -12,19 +12,19 @@ export const emailGenerator = {
 
   getContactMail(name, title, email, message) {
     return `
- <h1>Message from - Yoga Studio Contact Form</h1>
+ <h1>Message from - Fusion Yoga Studio Contact Form</h1>
  <h2>Message details</h2>
  </br>
  <p><b>From: </b>${name}, ${email}</p>
  <p><b>Title: </b>${title}</p>
  <p><b>Message: </b>${message}</p>
  </br>
- Contact form message from <b>Yoga Studio</b>`;
+ Contact form message from <b>Fusion Yoga Studio</b>`;
   },
 
   getBookingMail(booking) {
     return `
-  <h1>Sikeres foglalás - Yoga Studio Contact Form</h1>
+  <h1>Sikeres foglalás - Fusion Yoga Studio Contact Form</h1>
   <h2>${booking.lesson.type.name}</h2>
   </br>
   <p><b>Időpont: </b>${new Date(booking.lesson.start).toLocaleString('hu-HU', { timeZone: 'Europe/Budapest' })}</p>
@@ -33,12 +33,12 @@ export const emailGenerator = {
   <p><b>Ár: </b>${booking.lesson.price} Ft * ${booking.numOfGuests} Fő (Összesen: ${booking.lesson.price * booking.numOfGuests}Ft)</p>
   </br>
   <p>Köszönjük foglalását</p>
-  <b>Yoga Studio</b>`;
+  <b>Fusion Yoga Studio</b>`;
   },
 
   getCancellationMail(booking) {
     return `
-    <h1>Foglalás Lemondva - Yoga Studio Contact Form</h1>
+    <h1>Foglalás Lemondva - Fusion Yoga Studio Contact Form</h1>
     </br>
     <h2>Lemondott foglalás adatai:</h2>
     <p><b>${booking.lesson.type.name}</b></p>
@@ -47,7 +47,7 @@ export const emailGenerator = {
     <p><b>Fő: </b>${booking.numOfGuests} Fő</p>
     <p><b>Ár: </b>${booking.lesson.price} Ft * ${booking.numOfGuests} Fő (Összesen: ${booking.lesson.price * booking.numOfGuests}Ft)</p>
     </br>
-    <b>Yoga Studio</b>`;
+    <b>Fusion Yoga Studio</b>`;
   },
 
 };

@@ -9,9 +9,9 @@ const options = {
   definition: {
     openapi: "3.0.0",
     info: {
-      title: "Yoga Studio API",
+      title: "Fusio Yoga Studio API",
       version: "1.0.0",
-      description: "Express Library API for Yoga Studio",
+      description: "Express Library API for Fusion Yoga Studio",
     },
     servers: [
       {

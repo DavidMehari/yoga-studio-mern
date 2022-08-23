@@ -56,7 +56,7 @@ export const emailService = {
     await transport.sendMail({
       from: config.mailFrom,
       to: user.email,
-      subject: 'Welcome to Yoga Studio',
+      subject: 'Welcome to Fusion Yoga Studio',
       html: emailGenerator.getWelcomeMail(user.name, userId),
     });
 
