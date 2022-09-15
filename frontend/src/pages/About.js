@@ -5,15 +5,23 @@ import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Divider } from '@mui/material';
+import { Box, CardActionArea, Divider } from '@mui/material';
 import { getAllLessonTypes } from '../helpers/utils';
+import LessonTypeDetailed from '../components/LessonTypeDetailed';
 
 function About() {
   const [lessonTypes, setLessonTypes] = useState([]);
+  const [detailedLessonTypeOpen, setDetailedLessonTypeOpen] = useState(false);
+  const [selectedLessonType, setSelectedLessonType] = useState({});
 
   useEffect(() => {
     getAllLessonTypes().then((result) => setLessonTypes(result.lessonTypes));
   }, []);
+
+  const openLessonTypeDetails = (lessonType) => {
+    setDetailedLessonTypeOpen(true);
+    setSelectedLessonType(lessonType);
+  };
 
   return (
     <>
@@ -193,32 +201,45 @@ function About() {
                   flexDirection: 'column',
                 }}
               >
-                <CardMedia
-                  height="300px"
-                  component="img"
-                  image={`${process.env.REACT_APP_BACKEND_URI}/uploads/${lessonType.featuredImage}`}
-                  alt={lessonType.name}
-                />
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography gutterBottom variant="h5" component="h2">
-                    {lessonType.name}
-                  </Typography>
-                  <Typography
-                    sx={{
-                      overflow: 'hidden',
-                      textOverflow: 'ellipsis',
-                      display: '-webkit-box',
-                      WebkitLineClamp: '4',
-                      WebkitBoxOrient: 'vertical',
-                    }}
-                  >
-                    {lessonType.description}
-                  </Typography>
-                </CardContent>
+                <CardActionArea
+                  onClick={() => openLessonTypeDetails(lessonType)}
+                  sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
+                >
+
+                  <CardMedia
+                    height="300px"
+                    component="img"
+                    image={`${process.env.REACT_APP_BACKEND_URI}/uploads/${lessonType.featuredImage}`}
+                    alt={lessonType.name}
+                  />
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography gutterBottom variant="h5" component="h2">
+                      {lessonType.name}
+                    </Typography>
+                    {/* <Typography
+                      sx={{
+                        overflow: 'hidden',
+                        textOverflow: 'ellipsis',
+                        display: '-webkit-box',
+                        WebkitLineClamp: '4',
+                        WebkitBoxOrient: 'vertical',
+                      }}
+                    >
+                      {lessonType.description}
+                    </Typography> */}
+                  </CardContent>
+                </CardActionArea>
               </Card>
             </Grid>
           ))}
         </Grid>
+        <Box maxWidth="90%">
+          <LessonTypeDetailed
+            lessonType={selectedLessonType}
+            detailedLessonTypeOpen={detailedLessonTypeOpen}
+            setDetailedLessonTypeOpen={setDetailedLessonTypeOpen}
+          />
+        </Box>
       </Container>
     </>
   );

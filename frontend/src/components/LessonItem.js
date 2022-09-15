@@ -38,8 +38,6 @@ function LessonItem({ lesson, openLessonDetails, refreshData }) {
     setOpen(true);
   };
 
-  console.log(lesson);
-
   const handleLessonDelete = async (lessonId) => {
     const result = await deleteLesson(lessonId);
     if (result.status === 200) {
