@@ -59,6 +59,8 @@ function Home() {
           többet gyakoroljuk annál ragyogóbb lesz.&quot; B.K.S Iyengar
         </Typography>
 
+        {/* <Divider variant="middle" /> */}
+
         {/* <Box
           my={4}
           width="100%"

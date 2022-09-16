@@ -5,7 +5,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Box, CardActionArea, Divider } from '@mui/material';
+import {
+  Box, CardActionArea, Divider,
+} from '@mui/material';
 import { getAllLessonTypes } from '../helpers/utils';
 import LessonTypeDetailed from '../components/LessonTypeDetailed';
 
@@ -74,7 +76,123 @@ function About() {
         </Typography>
       </Container>
 
-      <Container sx={{ py: 8 }} maxWidth="md">
+      <Container sx={{ py: 8 }}>
+        <Grid container spacing={4} justifyContent="center" my={4}>
+          <Grid item xs={12} sm={6} md={6}>
+            <Box
+              component="img"
+              sx={{
+                maxHeight: 500,
+                objectFit: 'cover',
+                objectPosition: { sm: 'center', md: '0px -100px' },
+                width: '100%',
+                height: { xs: '100%', sm: 500, md: 400 },
+              }}
+              src="/trainers/eniko-yoga-about.jpg"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <Box>
+              <Typography variant="h5" component="h2">
+                Venczel Enikő
+              </Typography>
+              <Typography gutterBottom variant="subtitle2">
+                Vezető, Hatha Jóga oktató, Aerial Yoga Trapeze oktató,
+                Gerinctréner
+              </Typography>
+              <Typography>
+                Bár közgazdászként végeztem, de valójában soha nem dolgoztam a
+                szakmámban. A sport természetesen folyamatosan az életem része
+                volt, de amikor a jogával találkoztam először sajnos a stressz
+                is. Többet kerestem mint mozgás. A jóga ezt adta meg nekem,
+                hogy ki tudtam kapcsolni az elmémet a folyamatos gondolkozást,
+                agyalást. És ekkor tudásult bennem az is, hogy gyakorlatilag
+                egész általános iskolás koromtól kezdve csak ültem, merev
+                voltam, gerinc ferdülésem is kialukult a mindennapos helytelen
+                testtartastól. Hálás vagyok hogy időben életem részévé vált a
+                jóga, mert sokat a minden napokban is. Mind fizikálisan mind
+                mentálisan. Ha te is már eljutottál oda, hogy változtatni
+                szeretnél és érzed hogy többre van szükséged jelentkezz be
+                hozzám valamelyik órámra.
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+
+        <Divider variant="middle" />
+
+        <Grid container spacing={4} justifyContent="center" my={4}>
+          <Grid item xs={12} sm={6} md={6} order={{ xs: 2, sm: 1 }}>
+            <Box>
+              <Typography variant="h5" component="h2">
+                Gávai Nancy
+              </Typography>
+              <Typography gutterBottom variant="subtitle2">
+                Ösztöndíjas Jógaoktató, Mesterdiplomás Testnevelő Tanár
+              </Typography>
+              <Typography>
+                Ahogy sokan mások, én sem találtam a helyem, ebben a nyüzsgő,
+                rohanó világban. Aztán elkezdődött valami. Egyetemi éveim
+                alatt, ösztöndíj program keretein belül elutaztam a
+                Kanári-szigetekre, ahol egy évet töltöttem. Itt ismerkedtem
+                meg a Jógával és a Meditációval. Hatalmas, pozitív változás
+                következett be az életembe. Ezután éreztem, hogy oktatni és
+                fejlődni szeretnék. Több éve érzem, hogy a Világnak szüksége
+                van fejlődésre, lelki & testi szinten is. Ezért is nyitotta
+                meg kapuit a Nancy Yoga • EGER.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={6} order={{ xs: 1, sm: 2 }}>
+            <Box
+              component="img"
+              sx={{
+                maxHeight: 500,
+                objectFit: 'cover',
+                // objectPosition: { sm: 'center', md: '0px -100px' },
+                width: '100%',
+                height: { xs: '100%', sm: 500, md: 400 },
+              }}
+              src="/trainers/nancy-yoga-about.jpg"
+            />
+          </Grid>
+        </Grid>
+
+        <Divider variant="middle" />
+
+        <Grid container spacing={4} justifyContent="center" my={4}>
+          <Grid item xs={12} sm={6} md={6}>
+            <Box
+              component="img"
+              sx={{
+                maxHeight: 500,
+                objectFit: 'cover',
+                // objectPosition: '0px -100px',
+                width: '100%',
+                height: { xs: '100%', sm: 500, md: 400 },
+              }}
+              src="https://images.dailyhive.com/20211123105420/243879181_10158643651053318_890050781357489990_n.jpg"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <Box>
+              <Typography variant="h5" component="h2">
+                Vizslán Brigitta
+              </Typography>
+              <Typography gutterBottom variant="subtitle2">
+                Gyermekjóga oktató
+              </Typography>
+              <Typography>
+                8 évig dolgozotam óvodában, most jelenleg gyermek
+                táboroztatással foglalkozom, és e mellett gyermekjóga órákat
+                tartok.
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+      </Container>
+
+      {/* <Container sx={{ py: 8 }} maxWidth="md">
         <Grid container spacing={4} justifyContent="center">
           <Grid item xs={12} sm={6} md={4}>
             <Card
@@ -94,21 +212,23 @@ function About() {
                   Vezető, Hatha Jóga oktató, Aerial Yoga Trapeze oktató,
                   Gerinctréner
                 </Typography>
-                <Typography>
-                  Bár közgazdászként végeztem, de valójában soha nem dolgoztam a
-                  szakmámban. A sport természetesen folyamatosan az életem része
-                  volt, de amikor a jogával találkoztam először sajnos a stressz
-                  is. Többet kerestem mint mozgás. A jóga ezt adta meg nekem,
-                  hogy ki tudtam kapcsolni az elmémet a folyamatos gondolkozást,
-                  agyalást. És ekkor tudásult bennem az is, hogy gyakorlatilag
-                  egész általános iskolás koromtól kezdve csak ültem, merev
-                  voltam, gerinc ferdülésem is kialukult a mindennapos helytelen
-                  testtartastól. Hálás vagyok hogy időben életem részévé vált a
-                  jóga, mert sokat a minden napokban is. Mind fizikálisan mind
-                  mentálisan. Ha te is már eljutottál oda, hogy változtatni
-                  szeretnél és érzed hogy többre van szükséged jelentkezz be
-                  hozzám valamelyik órámra.
-                </Typography>
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                  <Typography>
+                    Bár közgazdászként végeztem, de valójában soha nem dolgoztam a
+                    szakmámban. A sport természetesen folyamatosan az életem része
+                    volt, de amikor a jogával találkoztam először sajnos a stressz
+                    is. Többet kerestem mint mozgás. A jóga ezt adta meg nekem,
+                    hogy ki tudtam kapcsolni az elmémet a folyamatos gondolkozást,
+                    agyalást. És ekkor tudásult bennem az is, hogy gyakorlatilag
+                    egész általános iskolás koromtól kezdve csak ültem, merev
+                    voltam, gerinc ferdülésem is kialukult a mindennapos helytelen
+                    testtartastól. Hálás vagyok hogy időben életem részévé vált a
+                    jóga, mert sokat a minden napokban is. Mind fizikálisan mind
+                    mentálisan. Ha te is már eljutottál oda, hogy változtatni
+                    szeretnél és érzed hogy többre van szükséged jelentkezz be
+                    hozzám valamelyik órámra.
+                  </Typography>
+                </Collapse>
               </CardContent>
             </Card>
           </Grid>
@@ -130,17 +250,19 @@ function About() {
                 <Typography gutterBottom variant="subtitle2">
                   Ösztöndíjas Jógaoktató, Mesterdiplomás Testnevelő Tanár
                 </Typography>
-                <Typography>
-                  Ahogy sokan mások, én sem találtam a helyem, ebben a nyüzsgő,
-                  rohanó világban. Aztán elkezdődött valami. Egyetemi éveim
-                  alatt, ösztöndíj program keretein belül elutaztam a
-                  Kanári-szigetekre, ahol egy évet töltöttem. Itt ismerkedtem
-                  meg a Jógával és a Meditációval. Hatalmas, pozitív változás
-                  következett be az életembe. Ezután éreztem, hogy oktatni és
-                  fejlődni szeretnék. Több éve érzem, hogy a Világnak szüksége
-                  van fejlődésre, lelki & testi szinten is. Ezért is nyitotta
-                  meg kapuit a Nancy Yoga • EGER.
-                </Typography>
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                  <Typography>
+                    Ahogy sokan mások, én sem találtam a helyem, ebben a nyüzsgő,
+                    rohanó világban. Aztán elkezdődött valami. Egyetemi éveim
+                    alatt, ösztöndíj program keretein belül elutaztam a
+                    Kanári-szigetekre, ahol egy évet töltöttem. Itt ismerkedtem
+                    meg a Jógával és a Meditációval. Hatalmas, pozitív változás
+                    következett be az életembe. Ezután éreztem, hogy oktatni és
+                    fejlődni szeretnék. Több éve érzem, hogy a Világnak szüksége
+                    van fejlődésre, lelki & testi szinten is. Ezért is nyitotta
+                    meg kapuit a Nancy Yoga • EGER.
+                  </Typography>
+                </Collapse>
               </CardContent>
             </Card>
           </Grid>
@@ -162,16 +284,18 @@ function About() {
                 <Typography gutterBottom variant="subtitle2">
                   Gyermekjóga oktató
                 </Typography>
-                <Typography>
-                  8 évig dolgozotam óvodában, most jelenleg gyermek
-                  táboroztatással foglalkozom, és e mellett gyermekjóga órákat
-                  tartok.
-                </Typography>
+                <Collapse in={expanded} timeout="auto" unmountOnExit>
+                  <Typography>
+                    8 évig dolgozotam óvodában, most jelenleg gyermek
+                    táboroztatással foglalkozom, és e mellett gyermekjóga órákat
+                    tartok.
+                  </Typography>
+                </Collapse>
               </CardContent>
             </Card>
           </Grid>
         </Grid>
-      </Container>
+      </Container> */}
 
       <Divider variant="middle" />
 
