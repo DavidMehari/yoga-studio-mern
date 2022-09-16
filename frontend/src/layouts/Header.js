@@ -37,13 +37,16 @@ function Header() {
 
   const activeStyleMoblie = {
     color: 'whitesmoke',
-    backgroundColor: '#bac3b8',
+    backgroundColor: '#b7e3e5',
+    // backgroundColor: '#bac3b8',
     fontWeight: 600,
   };
 
   const activeStyle = {
-    color: '#484242',
-    backgroundColor: '#bac3b8',
+    color: 'white',
+    backgroundColor: '#a1dadd',
+    // color: '#484242',
+    // backgroundColor: '#b7e3e5',
     fontWeight: 600,
   };
 

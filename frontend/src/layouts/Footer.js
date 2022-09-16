@@ -12,8 +12,8 @@ function Footer() {
     <Box
       component="footer"
       sx={{
-        bgcolor: 'primary.main',
-        color: 'whitesmoke',
+        bgcolor: 'secondary.main',
+        // color: 'whitesmoke',
       }}
     >
       <Box sx={{
@@ -31,7 +31,7 @@ function Footer() {
             flexDirection: 'column',
             alignItems: 'center',
             textDecoration: 'none',
-            color: 'whitesmoke',
+            color: 'black',
           }}
           component={NavLink}
           to="/"
@@ -45,7 +45,7 @@ function Footer() {
               fontWeight: 400,
               letterSpacing: '.1rem',
               textDecoration: 'none',
-              color: 'whitesmoke',
+              color: 'black',
             }}
           >
             Fusion Yoga Studio
