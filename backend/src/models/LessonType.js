@@ -15,7 +15,7 @@ const lessonTypeSchema = new mongoose.Schema({
   location: {
     type: String,
     required: true,
-    default: 'Gál Tibor Fúzió',
+    default: 'Gál Tibor Fúzió Galéria',
   },
   price: {
     type: Number,

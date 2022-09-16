@@ -78,7 +78,7 @@ function Footer() {
             }}
           >
             <LocationOnIcon fontSize="small" />
-            Gál Tibor Fúzió
+            Gál Tibor Fúzió Galéria
             <br />
             Csiky Sándor u. 10
             <br />
