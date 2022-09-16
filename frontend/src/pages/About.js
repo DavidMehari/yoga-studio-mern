@@ -69,7 +69,7 @@ function About() {
           color="text.secondary"
           paragraph
         >
-          Magasan képzett szakemberek, akik természetesen folyamatosan képzik
+          Magasan képzett szakemberek, akik folyamatosan képzik
           magukat a szinvonalasabb oktatás elérése érdekében.
         </Typography>
       </Container>
