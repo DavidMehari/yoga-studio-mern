@@ -4,7 +4,8 @@
   box-sizing: border-box;
 }
 
-html, body {
+html,
+body {
   height: 100%;
 }
 #root {
@@ -21,3 +22,4 @@ main {
 @import "@fontsource/roboto/500.css";
 @import "@fontsource/roboto/700.css";
 @import "@fontsource/the-nautigal/";
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@100;200;300;400;500;700&display=swap");

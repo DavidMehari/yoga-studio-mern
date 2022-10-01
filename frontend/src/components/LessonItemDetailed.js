@@ -211,7 +211,7 @@ function LessonItemDetailed({
                   </Avatar>
                   <Box sx={{ display: 'block' }}>
                     <Typography sx={{ fontWeight: 'medium' }}>
-                      Location
+                      Helyszín
                     </Typography>
                     <Typography variant="body2">{type?.location}</Typography>
                   </Box>

@@ -8,4 +8,8 @@ export default {
   mailUser: process.env.MAIL_USER,
   mailPassword: process.env.MAIL_PASSWORD,
   mailFrom: process.env.MAIL_FROM,
+  googleClientId: process.env.GOOGLE_CLIENT_ID,
+  googleClientSecret: process.env.GOOGLE_CLIENT_SECRET,
+  googleRefreshToken: process.env.GOOGLE_REFRESH_TOKEN,
+  googleUser: process.env.GOOGLE_USER,
 };

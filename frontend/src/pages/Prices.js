@@ -3,7 +3,7 @@ import {
 } from '@mui/material';
 
 import React from 'react';
-import PriceTable from '../components/PriceTable';
+import PriceTableV2 from '../components/PriceTableV2';
 
 function Prices() {
   return (
@@ -14,7 +14,7 @@ function Prices() {
           Áraink
         </Typography>
         <Box>
-          <PriceTable />
+          <PriceTableV2 />
         </Box>
       </Box>
     </Container>

@@ -36,7 +36,8 @@ function Contact() {
               variant="h4"
               sx={{
                 display: 'flex',
-                fontFamily: 'The Nautigal',
+                // fontFamily: 'The Nautigal',
+                fontFamily: 'Raleway',
                 fontWeight: 400,
                 letterSpacing: '.1rem',
                 textDecoration: 'none',

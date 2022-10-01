@@ -5,9 +5,7 @@ import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import {
-  Box, CardActionArea, Divider,
-} from '@mui/material';
+import { Box, CardActionArea, Divider } from '@mui/material';
 import { getAllLessonTypes } from '../helpers/utils';
 import LessonTypeDetailed from '../components/LessonTypeDetailed';
 
@@ -61,10 +59,10 @@ function About() {
       </Box>
       <Divider variant="middle" /> */}
 
-      <Container maxWidth="md" sx={{ mt: 8 }}>
-        {/* <Typography variant="h4" align="center" component="h2" gutterBottom>
+      {/* <Container maxWidth="md" sx={{ mt: 8 }}>
+        <Typography variant="h4" align="center" component="h2" gutterBottom>
           Oktatóink
-        </Typography> */}
+        </Typography>
         <Typography
           variant="h5"
           align="center"
@@ -74,7 +72,7 @@ function About() {
           Magasan képzett szakemberek, akik folyamatosan képzik
           magukat a szinvonalasabb oktatás elérése érdekében.
         </Typography>
-      </Container>
+      </Container> */}
 
       <Container sx={{ py: 8 }}>
         <Grid container spacing={4} justifyContent="center" my={4}>
@@ -104,8 +102,8 @@ function About() {
                 Bár közgazdászként végeztem, de valójában soha nem dolgoztam a
                 szakmámban. A sport természetesen folyamatosan az életem része
                 volt, de amikor a jogával találkoztam először sajnos a stressz
-                is. Többet kerestem mint mozgás. A jóga ezt adta meg nekem,
-                hogy ki tudtam kapcsolni az elmémet a folyamatos gondolkozást,
+                is. Többet kerestem mint mozgás. A jóga ezt adta meg nekem, hogy
+                ki tudtam kapcsolni az elmémet a folyamatos gondolkozást,
                 agyalást. És ekkor tudásult bennem az is, hogy gyakorlatilag
                 egész általános iskolás koromtól kezdve csak ültem, merev
                 voltam, gerinc ferdülésem is kialukult a mindennapos helytelen
@@ -132,14 +130,14 @@ function About() {
               </Typography>
               <Typography>
                 Ahogy sokan mások, én sem találtam a helyem, ebben a nyüzsgő,
-                rohanó világban. Aztán elkezdődött valami. Egyetemi éveim
-                alatt, ösztöndíj program keretein belül elutaztam a
-                Kanári-szigetekre, ahol egy évet töltöttem. Itt ismerkedtem
-                meg a Jógával és a Meditációval. Hatalmas, pozitív változás
-                következett be az életembe. Ezután éreztem, hogy oktatni és
-                fejlődni szeretnék. Több éve érzem, hogy a Világnak szüksége
-                van fejlődésre, lelki & testi szinten is. Ezért is nyitotta
-                meg kapuit a Nancy Yoga • EGER.
+                rohanó világban. Aztán elkezdődött valami. Egyetemi éveim alatt,
+                ösztöndíj program keretein belül elutaztam a Kanári-szigetekre,
+                ahol egy évet töltöttem. Itt ismerkedtem meg a Jógával és a
+                Meditációval. Hatalmas, pozitív változás következett be az
+                életembe. Ezután éreztem, hogy oktatni és fejlődni szeretnék.
+                Több éve érzem, hogy a Világnak szüksége van fejlődésre, lelki &
+                testi szinten is. Ezért is nyitotta meg kapuit a Nancy Yoga •
+                EGER.
               </Typography>
             </Box>
           </Grid>
@@ -171,7 +169,7 @@ function About() {
                 width: '100%',
                 height: { xs: '100%', sm: 500, md: 400 },
               }}
-              src="https://images.dailyhive.com/20211123105420/243879181_10158643651053318_890050781357489990_n.jpg"
+              src="/trainers/brigi-yoga-about.jpg"
             />
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
@@ -183,9 +181,17 @@ function About() {
                 Gyermekjóga oktató
               </Typography>
               <Typography>
-                8 évig dolgozotam óvodában, most jelenleg gyermek
-                táboroztatással foglalkozom, és e mellett gyermekjóga órákat
-                tartok.
+                Két gyermekes anyuka vagyok, emellett már évek óta gyerekekkel
+                dolgozom. Kilenc évig óvodában dolgoztam, nagyon szeretem a
+                gyerekek társaságát, és úgy gondolom, hogy nagyon könnyen
+                megtalálom velük a közös hangot. Jelenleg gyermektáborok
+                szervezésével és a jógával foglalkozom. Anya- Lánya illetve
+                gyermekjóga órákat tartok. A gyerekek nagyon szívesen játszanak
+                és mozognak egyszerre, így könnyedèn sajátítják el a jógázás
+                örömét, tanulják meg az állatok utánzásával a jóga ászanákat. A
+                rendszeres jógázás testi, lelki , szellemi szinten egyaránt
+                megalapozzák a kicsik egészséges èletèt. Szeretettel várok
+                minden jógázni vágyó gyereket!
               </Typography>
             </Box>
           </Grid>
@@ -222,9 +228,12 @@ function About() {
               >
                 <CardActionArea
                   onClick={() => openLessonTypeDetails(lessonType)}
-                  sx={{ display: 'flex', justifyContent: 'flex-start', flexWrap: 'wrap' }}
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'flex-start',
+                    flexWrap: 'wrap',
+                  }}
                 >
-
                   <CardMedia
                     height="300px"
                     component="img"
