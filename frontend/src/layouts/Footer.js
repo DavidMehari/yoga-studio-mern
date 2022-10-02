@@ -1,13 +1,22 @@
-import { Box, Typography } from '@mui/material';
-import React from 'react';
+import { Box, Button, Typography } from '@mui/material';
+import React, { lazy, Suspense, useState } from 'react';
 
 import SelfImprovementOutlinedIcon from '@mui/icons-material/SelfImprovementOutlined';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import EmailIcon from '@mui/icons-material/Email';
 import { NavLink } from 'react-router-dom';
 
+const ContactEmailHref = lazy(() => import('../components/ContactEmailHref'));
+
 function Footer() {
+  const [showingEmail, setShowingEmail] = useState(false);
+
+  const email = showingEmail ? (
+    <ContactEmailHref />
+  ) : (
+    <Button onClick={() => setShowingEmail(true)} variant="outlined" color="inherit">Email megjelenítése</Button>
+  );
+
   return (
     <Box
       component="footer"
@@ -101,21 +110,9 @@ function Footer() {
             +36 30 343 6542
           </Typography>
 
-          <Typography
-            variant="subtitle1"
-            component="div"
-            sx={{
-              display: 'flex',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: 1,
-              fontWeight: 200,
-            }}
-          >
-            <EmailIcon fontSize="small" />
-
-            yogastudio@gmail.com
-          </Typography>
+          <Suspense fallback={<>loading...</>}>
+            {email}
+          </Suspense>
 
         </Box>
       </Box>
