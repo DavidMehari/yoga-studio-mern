@@ -6,11 +6,22 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import SelfImprovementOutlinedIcon from '@mui/icons-material/SelfImprovementOutlined';
 
 import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import EmailIcon from '@mui/icons-material/Email';
+import { lazy, Suspense, useState } from 'react';
+import { Button } from '@mui/material';
 import ContactForm from '../components/ContactForm';
 import Map from '../components/Map';
 
+const ContactEmailHref = lazy(() => import('../components/ContactEmailHref'));
+
 function Contact() {
+  const [showingEmail, setShowingEmail] = useState(false);
+
+  const email = showingEmail ? (
+    <ContactEmailHref />
+  ) : (
+    <Button onClick={() => setShowingEmail(true)} variant="outlined">Email megjelenítése</Button>
+  );
+
   return (
     <>
       <Container maxWidth="md" sx={{ my: 4 }}>
@@ -93,21 +104,9 @@ function Contact() {
               +36 30 343 6542
             </Typography>
 
-            <Typography
-              variant="subtitle1"
-              component="div"
-              sx={{
-                display: 'flex',
-                alignItems: 'center',
-                flexWrap: 'wrap',
-                gap: 1,
-                fontWeight: 200,
-              }}
-            >
-              <EmailIcon fontSize="small" />
-
-              yogastudio@gmail.com
-            </Typography>
+            <Suspense fallback={<>loading...</>}>
+              {email}
+            </Suspense>
 
           </Box>
         </Box>
