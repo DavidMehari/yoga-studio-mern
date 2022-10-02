@@ -11,8 +11,8 @@ function Home() {
         component="div"
         sx={{
           backgroundImage:
-            'url(https://www.peerspace.com/resources/wp-content/uploads/yoga-studio-scaled.jpeg)',
-          // 'url(http://localhost:8080/uploads/20220819_114247_0000.png)',
+          // 'url(https://www.peerspace.com/resources/wp-content/uploads/yoga-studio-scaled.jpeg)',
+          'url(/studio/fusion-yoga-studio.jpg)',
           width: '100%',
           height: '80vh',
           maxHeight: '700px',
