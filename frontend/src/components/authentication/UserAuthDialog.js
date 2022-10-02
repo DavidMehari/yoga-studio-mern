@@ -1,4 +1,4 @@
-/* global google */
+// /* global google */
 import {
   Box,
   Dialog,
@@ -11,11 +11,11 @@ import {
   useMediaQuery,
   useTheme,
 } from '@mui/material';
-import { useEffect, useState } from 'react';
+import { /* useEffect, */ useState } from 'react';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import {
-  getDataFromToken, loginUser, loginWithGoogle, registerNewUser,
+  getDataFromToken, loginUser, /* loginWithGoogle, */ registerNewUser,
 } from '../../helpers/utils';
 import { useUserContext } from '../../contexts/UserContext';
 import { TransitionUp } from '../../helpers/transitions';
@@ -40,42 +40,42 @@ const UserAuthDialog = () => {
   const [loginError, setLoginError] = useState('');
   const [registerError, setRegisterError] = useState('');
 
-  const renderGoogleLogin = () => {
-    google.accounts.id.renderButton(document.getElementById('signInBoxGoogle'), {
-      theme: 'outline',
-      size: 'large',
-    });
-  };
+  // const renderGoogleLogin = () => {
+  //   google.accounts.id.renderButton(document.getElementById('signInBoxGoogle'), {
+  //     theme: 'outline',
+  //     size: 'large',
+  //   });
+  // };
 
-  const handleCallbackResponse = async (response) => {
-    const userObject = getDataFromToken(response.credential);
-    const result = await loginWithGoogle({
-      name: userObject.name,
-      email: userObject.email,
-      avatar: userObject.picture,
-      googleId: userObject.sub,
-    });
-    if (result.status === 200) {
-      setActiveUser(getDataFromToken(result.token));
-      localStorage.setItem('userToken', result.token);
-      setAuthDialogOpen(false);
-    } else {
-      setLoginError(result.message);
-    }
-  };
+  // const handleCallbackResponse = async (response) => {
+  //   const userObject = getDataFromToken(response.credential);
+  //   const result = await loginWithGoogle({
+  //     name: userObject.name,
+  //     email: userObject.email,
+  //     avatar: userObject.picture,
+  //     googleId: userObject.sub,
+  //   });
+  //   if (result.status === 200) {
+  //     setActiveUser(getDataFromToken(result.token));
+  //     localStorage.setItem('userToken', result.token);
+  //     setAuthDialogOpen(false);
+  //   } else {
+  //     setLoginError(result.message);
+  //   }
+  // };
 
-  useEffect(() => {
-    google.accounts.id.initialize({
-      client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
-      callback: handleCallbackResponse,
-    });
+  // useEffect(() => {
+  //   google.accounts.id.initialize({
+  //     client_id: process.env.REACT_APP_GOOGLE_CLIENT_ID,
+  //     callback: handleCallbackResponse,
+  //   });
 
-    renderGoogleLogin();
-  }, []);
+  //   renderGoogleLogin();
+  // }, []);
 
-  useEffect(() => {
-    renderGoogleLogin();
-  }, [authDialogOpen, activeTab]);
+  // useEffect(() => {
+  //   renderGoogleLogin();
+  // }, [authDialogOpen, activeTab]);
 
   async function signInWithEmail() {
     setLoginError('');
@@ -141,7 +141,10 @@ const UserAuthDialog = () => {
               >
                 Belépés
               </Typography>
-              <Box id="signInBoxGoogle" sx={{ width: 'fit-content', height: '44px', m: '0 auto' }} />
+              {/* <Box
+                id="signInBoxGoogle"
+                sx={{ width: 'fit-content', height: '44px', m: '0 auto' }}
+              />
               <Typography
                 sx={{ textAlign: 'center', marginTop: '20px' }}
                 variant="p"
@@ -149,7 +152,7 @@ const UserAuthDialog = () => {
                 component="div"
               >
                 - VAGY -
-              </Typography>
+              </Typography> */}
               <LoginForm
                 loginFormData={loginFormData}
                 setLoginFormData={setLoginFormData}
