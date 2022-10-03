@@ -101,7 +101,7 @@ function Contact() {
               }}
             >
               <LocalPhoneIcon fontSize="small" />
-              +36 30 343 6542
+              +36 70 703 7123
             </Typography>
 
             <Suspense fallback={<>loading...</>}>
