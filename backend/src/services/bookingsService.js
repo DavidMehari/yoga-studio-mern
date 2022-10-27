@@ -2,7 +2,8 @@ import { isObjectIdOrHexString } from 'mongoose';
 import Booking from '../models/Booking';
 import Lesson from '../models/Lesson';
 import CustomError from '../utils/CustomError';
-import { emailService } from './emailService';
+import { emailServiceProd } from './emailServiceProd';
+// import { emailService } from './emailService';
 
 export const bookingsService = {
 
@@ -69,7 +70,7 @@ export const bookingsService = {
       .populate('user', 'name email')
       .populate({ path: 'lesson', populate: { path: 'type', select: 'name' } });
 
-    emailService.sendBookingConfirmationEmail(newBookingPopulated);
+    emailServiceProd.sendBookingConfirmationEmail(newBookingPopulated);
 
     return { confirmation: 'Booking successfull' };
   },
@@ -113,7 +114,7 @@ export const bookingsService = {
     }
     lesson.save();
 
-    emailService.sendBookingCancelledEmail(updatedBookingPopulated);
+    emailServiceProd.sendBookingCancelledEmail(updatedBookingPopulated);
 
     return { confirmation: 'Booking cancelled' };
   },

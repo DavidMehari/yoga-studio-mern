@@ -34,7 +34,7 @@ export const emailServiceProd = {
     const transport = getTransportWithAccessToken();
     await transport.sendMail({
       from: `${name} <${email}>`,
-      to: 'admin@yoga-studio.com',
+      to: 'vencyy@gmail.com',
       subject: `Contact - ${title}`,
       html: emailGenerator.getContactMail(name, title, email, message),
     });
@@ -45,9 +45,9 @@ export const emailServiceProd = {
   async sendBookingConfirmationEmail(booking) {
     const transport = getTransportWithAccessToken();
     await transport.sendMail({
-      from: 'admin@yoga-studio.com',
-      to: [booking.user.email, 'admin@yoga-studio.com'],
-      subject: `Foglalás visszaigazolása - ${booking.lesson.name}`,
+      from: 'vencyy@gmail.com',
+      to: [booking.user.email, 'vencyy@gmail.com'],
+      subject: `Foglalás visszaigazolása - ${booking.lesson.type.name}`,
       html: emailGenerator.getBookingMail(booking),
     });
     transport.close();
@@ -57,9 +57,9 @@ export const emailServiceProd = {
   async sendBookingCancelledEmail(booking) {
     const transport = getTransportWithAccessToken();
     await transport.sendMail({
-      from: 'admin@yoga-studio.com',
-      to: [booking.user.email, 'admin@yoga-studio.com'],
-      subject: `Foglalás lemondva - ${booking.lesson.name}`,
+      from: 'vencyy@gmail.com',
+      to: [booking.user.email, 'vencyy@gmail.com'],
+      subject: `Foglalás lemondva - ${booking.lesson.type.name}`,
       html: emailGenerator.getCancellationMail(booking),
     });
     transport.close();
@@ -75,7 +75,7 @@ export const emailServiceProd = {
     await transport.sendMail({
       from: config.mailFrom,
       to: user.email,
-      subject: 'Welcome to Yoga Studio',
+      subject: 'Welcome to Fusion Yoga Studio',
       html: emailGenerator.getWelcomeMail(user.name, userId),
     });
     transport.close();

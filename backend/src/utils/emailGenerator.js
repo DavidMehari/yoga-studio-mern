@@ -3,11 +3,11 @@ export const emailGenerator = {
   getWelcomeMail(name) {
     return `
     <h1>Hello ${name},</h1>
-    <h2>Thank you for joining Yoga Studio.</h2>
+    <h2>Thank you for joining Fusion Yoga Studio.</h2>
     <p>We'd like to confirm that your account was created successfully.</p>
     </br>
     Best regards,</br>
-    <b>The Yoga Stuio team</b>`;
+    <b>The Fusion Yoga Studio team</b>`;
   },
 
   getContactMail(name, title, email, message) {
@@ -28,9 +28,7 @@ export const emailGenerator = {
   <h2>${booking.lesson.type.name}</h2>
   </br>
   <p><b>Időpont: </b>${new Date(booking.lesson.start).toLocaleString('hu-HU', { timeZone: 'Europe/Budapest' })}</p>
-  <p><b>Helyszín: </b>${booking.lesson.location}</p>
   <p><b>Fő: </b>${booking.numOfGuests} Fő</p>
-  <p><b>Ár: </b>${booking.lesson.price} Ft * ${booking.numOfGuests} Fő (Összesen: ${booking.lesson.price * booking.numOfGuests}Ft)</p>
   </br>
   <p>Köszönjük foglalását</p>
   <b>Fusion Yoga Studio</b>`;
@@ -43,9 +41,7 @@ export const emailGenerator = {
     <h2>Lemondott foglalás adatai:</h2>
     <p><b>${booking.lesson.type.name}</b></p>
     <p><b>Időpont: </b>${new Date(booking.lesson.start).toLocaleString('hu-HU', { timeZone: 'Europe/Budapest' })}</p>
-    <p><b>Helyszín: </b>${booking.lesson.location}</p>
     <p><b>Fő: </b>${booking.numOfGuests} Fő</p>
-    <p><b>Ár: </b>${booking.lesson.price} Ft * ${booking.numOfGuests} Fő (Összesen: ${booking.lesson.price * booking.numOfGuests}Ft)</p>
     </br>
     <b>Fusion Yoga Studio</b>`;
   },

@@ -1,4 +1,5 @@
-import { emailService } from '../services';
+// import { emailService } from '../services';
+import { emailServiceProd } from '../services/emailServiceProd';
 import CustomError from '../utils/CustomError';
 import { contactValidation } from '../validation/contactValidation';
 
@@ -20,7 +21,7 @@ export const emailController = {
         throw new CustomError(400, error.details[0].message);
       }
 
-      const result = await emailService.sendContactEmail({
+      const result = await emailServiceProd.sendContactEmail({
         name: req.body.name,
         title: req.body.title,
         email: req.body.email,

@@ -196,6 +196,48 @@ function About() {
             </Box>
           </Grid>
         </Grid>
+
+        <Divider variant="middle" />
+
+        <Grid container spacing={4} justifyContent="center" my={4}>
+          <Grid item xs={12} sm={6} md={6} order={{ xs: 2, sm: 1 }}>
+            <Box>
+              <Typography variant="h5" component="h2">
+                Bodó Anita
+              </Typography>
+              <Typography gutterBottom variant="subtitle2">
+                Hatha Jóga Oktató
+              </Typography>
+              <Typography>
+                A sport kiskoróm óta szerves része volt az életemnek,
+                versenyszerűen karatéztam és ehhez kerestem egy kis segítséget.
+                Így találkoztam a jógával, amire kezdetben kiegészítő mozgásként
+                tekintettem, majd ahogy egyre jobban belecsöppentem,
+                megtapasztaltam hogy mennyi pozitív lelki és testi hatása van.
+                Teljes szerelem lett. Segített, hogy mint sportoló és mint nő
+                megtaláljam az egyensúlyomat, amikor a világ a feje tetejére
+                áll. Ezt az érzést szeretném átadni az órámon, megteremteni a
+                harmóniát az erő, a stabilitás és a rugalmasság között, a
+                légzőgyakorlatok és az ászanák által. A célom az, hogy amikor
+                belépsz az órámra, a külvilág zajait a hátad mögött hagyd és
+                megérkezz a pillanatba.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={6} order={{ xs: 1, sm: 2 }}>
+            <Box
+              component="img"
+              sx={{
+                maxHeight: 500,
+                objectFit: 'cover',
+                // objectPosition: { sm: 'center', md: '0px -100px' },
+                width: '100%',
+                height: { xs: '100%', sm: 500, md: 400 },
+              }}
+              src="/trainers/anita-yoga-about.jpg"
+            />
+          </Grid>
+        </Grid>
       </Container>
 
       <Divider variant="middle" />

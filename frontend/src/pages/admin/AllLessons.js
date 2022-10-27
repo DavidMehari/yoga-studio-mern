@@ -1,4 +1,5 @@
 import { Box, Container, Typography } from '@mui/material';
+import { isAfter, startOfToday } from 'date-fns';
 import React, { useEffect, useState } from 'react';
 import LessonItemAdmin from '../../components/admin/LessonItemAdmin';
 import { getAllLessonsAdmin } from '../../helpers/utils';
@@ -12,7 +13,9 @@ function AllLessons() {
     const result = await getAllLessonsAdmin();
     if (result.status === 200) {
       setAllLessons(result.lessons);
-      setFilteredLessons(result.lessons);
+      setFilteredLessons(result.lessons.filter((lesson) => (
+        isAfter(new Date(lesson.start), startOfToday())
+      )));
     }
   };
 

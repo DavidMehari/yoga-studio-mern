@@ -4,7 +4,8 @@ import config from '../config';
 import User from '../models/User';
 import CustomError from '../utils/CustomError';
 import { registerValidation } from '../validation/registerValidation';
-import { emailService } from './emailService';
+import { emailServiceProd } from './emailServiceProd';
+// import { emailService } from './emailService';
 
 export const registerService = {
   async register({ name, email, password }) {
@@ -32,7 +33,7 @@ export const registerService = {
     });
     await user.save();
 
-    emailService.sendWelcomeEmail(user._id);
+    emailServiceProd.sendWelcomeEmail(user._id);
 
     const token = jwt.sign(
       {
