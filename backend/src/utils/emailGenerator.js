@@ -27,6 +27,7 @@ export const emailGenerator = {
   <h1>Sikeres foglalás - Fusion Yoga Studio Contact Form</h1>
   <h2>${booking.lesson.type.name}</h2>
   </br>
+  <p><b>${booking.user.name}</b></p>
   <p><b>Időpont: </b>${new Date(booking.lesson.start).toLocaleString('hu-HU', { timeZone: 'Europe/Budapest' })}</p>
   <p><b>Fő: </b>${booking.numOfGuests} Fő</p>
   </br>
@@ -39,6 +40,7 @@ export const emailGenerator = {
     <h1>Foglalás Lemondva - Fusion Yoga Studio Contact Form</h1>
     </br>
     <h2>Lemondott foglalás adatai:</h2>
+    <p><b>${booking.user.name}</b></p>
     <p><b>${booking.lesson.type.name}</b></p>
     <p><b>Időpont: </b>${new Date(booking.lesson.start).toLocaleString('hu-HU', { timeZone: 'Europe/Budapest' })}</p>
     <p><b>Fő: </b>${booking.numOfGuests} Fő</p>

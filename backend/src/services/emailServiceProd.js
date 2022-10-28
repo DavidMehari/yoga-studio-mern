@@ -46,7 +46,7 @@ export const emailServiceProd = {
     const transport = getTransportWithAccessToken();
     await transport.sendMail({
       from: 'vencyy@gmail.com',
-      to: [booking.user.email, 'vencyy@gmail.com'],
+      to: [booking.user.email, 'david.mehari@gmail.com'],
       subject: `Foglalás visszaigazolása - ${booking.lesson.type.name}`,
       html: emailGenerator.getBookingMail(booking),
     });
@@ -58,7 +58,7 @@ export const emailServiceProd = {
     const transport = getTransportWithAccessToken();
     await transport.sendMail({
       from: 'vencyy@gmail.com',
-      to: [booking.user.email, 'vencyy@gmail.com'],
+      to: [booking.user.email, 'david.mehari@gmail.com'],
       subject: `Foglalás lemondva - ${booking.lesson.type.name}`,
       html: emailGenerator.getCancellationMail(booking),
     });
