@@ -164,7 +164,6 @@ function AddLessonType() {
       const result = await addNewLessonType(newLessonTypeData, featuredImage);
       if (result.status === 200) {
         setSendStatus('success');
-        event.target.reset();
       } else {
         setSendError(result.message);
         setSendStatus('error');

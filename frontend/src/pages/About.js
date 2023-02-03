@@ -209,7 +209,7 @@ function About() {
                 Hatha Jóga Oktató
               </Typography>
               <Typography>
-                A sport kiskoróm óta szerves része volt az életemnek,
+                A sport kiskorom óta szerves része volt az életemnek,
                 versenyszerűen karatéztam és ehhez kerestem egy kis segítséget.
                 Így találkoztam a jógával, amire kezdetben kiegészítő mozgásként
                 tekintettem, majd ahogy egyre jobban belecsöppentem,
@@ -236,6 +236,61 @@ function About() {
               }}
               src="/trainers/anita-yoga-about.jpg"
             />
+          </Grid>
+        </Grid>
+
+        <Divider variant="middle" />
+
+        <Grid container spacing={4} justifyContent="center" my={4}>
+          <Grid item xs={12} sm={6} md={6}>
+            <Box
+              component="img"
+              sx={{
+                maxHeight: 500,
+                objectFit: 'cover',
+                // objectPosition: '0px -100px',
+                width: '100%',
+                height: { xs: '100%', sm: 500, md: 400 },
+              }}
+              src="/trainers/sara-yoga-about.jpg"
+            />
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <Box>
+              <Typography variant="h5" component="h2">
+                Tasnádi Sára
+              </Typography>
+              <Typography gutterBottom variant="subtitle2">
+                Hatha - és kismama jóga oktató, gyógypedagógus, kutyás terapeuta
+              </Typography>
+              <Typography gutterBottom>
+                Mozgás. Kívül - belül. Szüntelenül. És a megfelelő, személyre
+                szabott támogatás nyújtása azoknak, akik hozzám fordulnak
+                segítségért. Ez a kettő hajt, visz előre és ösztökél állandó
+                fejlődésre mind gyógypedagógusként, mind sportolóként, mind
+                magánemberként. A jóga, a magában hordozott számos pozitív
+                hatással kitűnő lehetőséget nyújt mindezek megvalósításához,
+                hiszen általa a mozgáson, az egészséges testtudat és testkép
+                kialakításán túl a szellemi és lelki szintű fejlődés
+                megtapasztalása is adott az arra nyitott gyakorlók számára.
+              </Typography>
+              <Typography gutterBottom>
+                Szerencsére a jóga semmit nem kíván pótolni az életemben, csupán
+                teljesebbé teszi azt, növelve azt a spektrumot, amin a mélyről
+                jövő, ösztönös segítő attitűdömet kibontakoztathatom. Örömömre
+                szolgál, hogy a jógával immár a kismamákat is segíthetem nem
+                csupán a célzott mozgásban, hanem a gyermekükkel való
+                kapcsolódás korai megélésében is.
+              </Typography>
+              <Typography gutterBottom>
+                A finomabb, megengedőbb
+                kismama óratartást ugyanúgy tudom határtalanul élvezni, mint a
+                dinamikusabb, erőt próbáló gyakorlatsorok megálmodását.
+                Szeretettel várlak óráimon akár az anyaság kihívásaival
+                barátkozol éppen, akár egy elfogadó, biztató, motiváló közegben
+                szeretnéd feszegetni saját határaidat!
+              </Typography>
+            </Box>
           </Grid>
         </Grid>
       </Container>

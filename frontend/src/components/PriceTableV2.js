@@ -16,12 +16,12 @@ function PriceTableV2() {
                 1 alkalom
               </Typography>
               <Typography fontWeight={500}>
-                3000.-
+                3500.-
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
               <Typography>
-                6 alkalas bérlet
+                5 alkalas bérlet
               </Typography>
               <Typography fontWeight={500}>
                 15000.-
@@ -35,7 +35,7 @@ function PriceTableV2() {
                 1 alkalom
               </Typography>
               <Typography fontWeight={500}>
-                3000.-
+                3500.-
               </Typography>
             </Box>
             <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -43,14 +43,14 @@ function PriceTableV2() {
                 5 alkalas bérlet
               </Typography>
               <Typography fontWeight={500}>
-                14000.-
+                15000.-
               </Typography>
             </Box>
           </Grid>
         </Grid>
       </Box>
       <Box>
-        <Typography variant="h4" fontSize={30} fontWeight={300} align="center" component="h2">Levegő Jóga</Typography>
+        <Typography variant="h4" fontSize={30} fontWeight={300} align="center" component="h2">Air Yoga</Typography>
         <Divider />
         <Box mt={2} mb={3}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -58,29 +58,7 @@ function PriceTableV2() {
               1 alkalom
             </Typography>
             <Typography fontWeight={500}>
-              4000.-
-            </Typography>
-          </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography>
-              6 alkalas bérlet
-            </Typography>
-            <Typography fontWeight={500}>
-              22800.-
-            </Typography>
-          </Box>
-        </Box>
-      </Box>
-      <Box>
-        <Typography variant="h4" fontSize={30} fontWeight={300} align="center" component="h2">Gyermek Levegő Jóga</Typography>
-        <Divider />
-        <Box mt={2} mb={3}>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography>
-              1 alkalom
-            </Typography>
-            <Typography fontWeight={500}>
-              3000.-
+              4500.-
             </Typography>
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
@@ -88,13 +66,66 @@ function PriceTableV2() {
               5 alkalas bérlet
             </Typography>
             <Typography fontWeight={500}>
-              12500.-
+              21500.-
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+      <Box>
+        <Typography variant="h4" fontSize={30} fontWeight={300} align="center" component="h2">Gyermek Air Yoga</Typography>
+        <Divider />
+        <Box mt={2} mb={3}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Typography>
+              1 alkalom
+            </Typography>
+            <Typography fontWeight={500}>
+              3500.-
+            </Typography>
+          </Box>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Typography>
+              5 alkalas bérlet
+            </Typography>
+            <Typography fontWeight={500}>
+              16500.-
+            </Typography>
+          </Box>
+        </Box>
+      </Box>
+      <Box>
+        <Typography variant="h4" fontSize={30} fontWeight={300} align="center" component="h2">Yoga Trapaze</Typography>
+        <Divider />
+        <Box mt={2} mb={3}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Typography>
+              1 alkalom
+            </Typography>
+            <Typography fontWeight={500}>
+              3500.-
+            </Typography>
+          </Box>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Typography>
+              5 alkalas bérlet
+            </Typography>
+            <Typography fontWeight={500}>
+              15000.-
+            </Typography>
+          </Box>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Typography>
+              Kombinált Talaj Jóga + Yoga Trapaze
+            </Typography>
+            <Typography fontWeight={500}>
+              29000.-
             </Typography>
           </Box>
         </Box>
       </Box>
       <Box mt={2} mb={3}>
         <Typography variant="h4" fontSize={30} fontWeight={300} align="center" component="h2">Magánóra</Typography>
+        <Typography variant="h4" fontSize={20} fontWeight={300} align="center" component="h3">(Talaj Jóga, Air Yoga, Yoga Trapaze)</Typography>
         <Divider />
         <Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
