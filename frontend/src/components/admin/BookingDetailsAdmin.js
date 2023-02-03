@@ -37,6 +37,9 @@ function BookingDetailsAdmin({ booking }) {
             <Typography component="div" variant="h6">
               {user.name}
             </Typography>
+            <Typography component="div" variant="body1" gutterBottom>
+              {user.email}
+            </Typography>
             <Typography
               variant="subtitle1"
               color="text.secondary"

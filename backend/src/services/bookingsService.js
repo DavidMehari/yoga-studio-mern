@@ -20,7 +20,7 @@ export const bookingsService = {
   async getAllBookings() {
     try {
       const allBookings = await Booking.find({})
-        .populate('user', 'name')
+        .populate('user', 'name email')
         .populate({ path: 'lesson', populate: { path: 'type', populate: { path: 'instructor' } } })
         .sort({ createdAt: 'desc' });
       return allBookings;

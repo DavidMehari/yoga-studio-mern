@@ -61,7 +61,7 @@ function BookingListItem({ booking, refreshData }) {
           width: '100%',
         }}
       >
-        <CardActionArea sx={{ display: 'flex', justifyContent: 'flex-start' }}>
+        <CardActionArea as="div" sx={{ display: 'flex', justifyContent: 'flex-start' }}>
           {activeUser.role === 'admin'
             ? <BookingDetailsAdmin booking={booking} />
             : <BookingDetailsGuest booking={booking} />}
