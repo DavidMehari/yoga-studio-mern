@@ -95,8 +95,8 @@ function About() {
                 Venczel Enikő
               </Typography>
               <Typography gutterBottom variant="subtitle2">
-                Vezető, Hatha Jóga oktató, Aerial Yoga Trapeze oktató,
-                Gerinctréner
+                A stúdió megálmodója, az oldal tulajdonosa, Hatha Jóga oktató,
+                Aerial Yoga Trapeze oktató, Gerinctréner
               </Typography>
               <Typography>
                 Bár közgazdászként végeztem, de valójában soha nem dolgoztam a
@@ -254,43 +254,6 @@ function About() {
               }}
               src="/trainers/sara-yoga-about.jpg"
             />
-          </Grid>
-          <Grid item xs={12} sm={6} md={6}>
-            <Box>
-              <Typography variant="h5" component="h2">
-                Tasnádi Sára
-              </Typography>
-              <Typography gutterBottom variant="subtitle2">
-                Hatha - és kismama jóga oktató, gyógypedagógus, kutyás terapeuta
-              </Typography>
-              <Typography gutterBottom>
-                Mozgás. Kívül - belül. Szüntelenül. És a megfelelő, személyre
-                szabott támogatás nyújtása azoknak, akik hozzám fordulnak
-                segítségért. Ez a kettő hajt, visz előre és ösztökél állandó
-                fejlődésre mind gyógypedagógusként, mind sportolóként, mind
-                magánemberként. A jóga, a magában hordozott számos pozitív
-                hatással kitűnő lehetőséget nyújt mindezek megvalósításához,
-                hiszen általa a mozgáson, az egészséges testtudat és testkép
-                kialakításán túl a szellemi és lelki szintű fejlődés
-                megtapasztalása is adott az arra nyitott gyakorlók számára.
-              </Typography>
-              <Typography gutterBottom>
-                Szerencsére a jóga semmit nem kíván pótolni az életemben, csupán
-                teljesebbé teszi azt, növelve azt a spektrumot, amin a mélyről
-                jövő, ösztönös segítő attitűdömet kibontakoztathatom. Örömömre
-                szolgál, hogy a jógával immár a kismamákat is segíthetem nem
-                csupán a célzott mozgásban, hanem a gyermekükkel való
-                kapcsolódás korai megélésében is.
-              </Typography>
-              <Typography gutterBottom>
-                A finomabb, megengedőbb
-                kismama óratartást ugyanúgy tudom határtalanul élvezni, mint a
-                dinamikusabb, erőt próbáló gyakorlatsorok megálmodását.
-                Szeretettel várlak óráimon akár az anyaság kihívásaival
-                barátkozol éppen, akár egy elfogadó, biztató, motiváló közegben
-                szeretnéd feszegetni saját határaidat!
-              </Typography>
-            </Box>
           </Grid>
         </Grid>
       </Container>
