@@ -239,23 +239,6 @@ function About() {
           </Grid>
         </Grid>
 
-        <Divider variant="middle" />
-
-        <Grid container spacing={4} justifyContent="center" my={4}>
-          <Grid item xs={12} sm={6} md={6}>
-            <Box
-              component="img"
-              sx={{
-                maxHeight: 500,
-                objectFit: 'cover',
-                // objectPosition: '0px -100px',
-                width: '100%',
-                height: { xs: '100%', sm: 500, md: 400 },
-              }}
-              src="/trainers/sara-yoga-about.jpg"
-            />
-          </Grid>
-        </Grid>
       </Container>
 
       <Divider variant="middle" />
