@@ -47,9 +47,9 @@ function Timetable() {
     setFilteredLessons(filterByDay(selectedDate));
   }, [selectedDate]);
 
-  const disableWeekends = (date) => {
-    return date.getDay() === 0 || date.getDay() === 6;
-  };
+  // const disableWeekends = (date) => {
+  //   return date.getDay() === 0 || date.getDay() === 6;
+  // };
 
   const renderWeekPickerDay = (date, selectedDates, pickersDayProps) => {
     return (
@@ -63,19 +63,27 @@ function Timetable() {
 
   return (
     <Container maxWidth="lg" sx={{ my: 4 }}>
-      <Box component="div" display="flex" flexDirection="column" alignItems="center">
+      <Box
+        component="div"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+      >
         <Typography variant="h2" align="center" component="div" gutterBottom>
           Órarend
         </Typography>
 
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
-            <LocalizationProvider dateAdapter={AdapterDateFns} adapterLocale={huLocale}>
+            <LocalizationProvider
+              dateAdapter={AdapterDateFns}
+              adapterLocale={huLocale}
+            >
               <CalendarPicker
                 onChange={(e) => setSelectedDate(e)}
                 minDate={new Date()}
                 renderDay={renderWeekPickerDay}
-                shouldDisableDate={disableWeekends}
+                // shouldDisableDate={disableWeekends}
               />
             </LocalizationProvider>
             <Typography variant="body1" align="center" component="div">
@@ -92,10 +100,7 @@ function Timetable() {
             </Typography>
           </Grid>
           <Grid item xs={12} md={6}>
-
-            <Box
-              sx={{ display: 'flex', flexDirection: 'column' }}
-            >
+            <Box sx={{ display: 'flex', flexDirection: 'column' }}>
               {filteredLessons.map((lesson) => (
                 <LessonItem
                   key={lesson._id}
@@ -106,7 +111,6 @@ function Timetable() {
               ))}
             </Box>
           </Grid>
-
         </Grid>
         <Box maxWidth="90%">
           <LessonItemDetailed
