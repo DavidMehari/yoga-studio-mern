@@ -5,7 +5,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
-import { Box, CardActionArea, Divider } from '@mui/material';
+import {
+  Box, CardActionArea, Divider, Link,
+} from '@mui/material';
 import { getAllLessonTypes } from '../helpers/utils';
 import LessonTypeDetailed from '../components/LessonTypeDetailed';
 
@@ -15,8 +17,17 @@ function About() {
   const [selectedLessonType, setSelectedLessonType] = useState({});
 
   useEffect(() => {
-    getAllLessonTypes().then((result) => setLessonTypes(result.lessonTypes));
+    getAllLessonTypes().then((result) => {
+      if (result.lessonTypes?.length) {
+        setLessonTypes(result.lessonTypes.filter((lessonType) => !lessonType?.hidden));
+      }
+      console.log(lessonTypes);
+    });
   }, []);
+
+  useEffect(() => {
+    console.log(lessonTypes);
+  }, [lessonTypes]);
 
   const openLessonTypeDetails = (lessonType) => {
     setDetailedLessonTypeOpen(true);
@@ -95,7 +106,7 @@ function About() {
                 Venczel Enikő
               </Typography>
               <Typography gutterBottom variant="subtitle2">
-                A stúdió megálmodója, az oldal tulajdonosa, Hatha Jóga oktató,
+                A Stúdió megálmodója, az oldal tulajdonosa, Hatha Jóga oktató,
                 Aerial Yoga Trapeze oktató, Gerinctréner
               </Typography>
               <Typography>
@@ -104,14 +115,21 @@ function About() {
                 volt, de amikor a jogával találkoztam először sajnos a stressz
                 is. Többet kerestem mint mozgás. A jóga ezt adta meg nekem, hogy
                 ki tudtam kapcsolni az elmémet a folyamatos gondolkozást,
-                agyalást. És ekkor tudásult bennem az is, hogy gyakorlatilag
+                agyalást. És ekkor tudatosult bennem az is, hogy gyakorlatilag
                 egész általános iskolás koromtól kezdve csak ültem, merev
                 voltam, gerinc ferdülésem is kialukult a mindennapos helytelen
                 testtartastól. Hálás vagyok hogy időben életem részévé vált a
-                jóga, mert sokat a minden napokban is. Mind fizikálisan mind
-                mentálisan. Ha te is már eljutottál oda, hogy változtatni
-                szeretnél és érzed hogy többre van szükséged jelentkezz be
-                hozzám valamelyik órámra.
+                jóga, mert sokat ad a minden napokban is. Mind fizikálisan mind
+                mentálisan. A jóga számomra az egyik leghatékonyabb módszer
+                arra, hogy a testet és az elmét egyensúlyba hozzuk, miközben
+                erősítjük a testtudatosságot és a jelenlétet. Az óráimon a
+                hangsúly a légzésre, a helyes testtartásra és a finom mozgásokra
+                kerül, hogy mindenki saját tempójában, biztonságosan
+                fejlődhessen. Az órák nemcsak a fizikai erőnlétet javítják,
+                hanem segítenek a mentális feszültségek oldásában is. Ha
+                szeretnéd felfedezni a jóga mélyebb világát, vagy ha csupán egy
+                kis pihenésre és feltöltődésre van szükséged a hétköznapokban,
+                szeretettel várlak az óráimra.
               </Typography>
             </Box>
           </Grid>
@@ -129,15 +147,25 @@ function About() {
                 Ösztöndíjas Jógaoktató, Mesterdiplomás Testnevelő Tanár
               </Typography>
               <Typography>
-                Ahogy sokan mások, én sem találtam a helyem, ebben a nyüzsgő,
-                rohanó világban. Aztán elkezdődött valami. Egyetemi éveim alatt,
-                ösztöndíj program keretein belül elutaztam a Kanári-szigetekre,
-                ahol egy évet töltöttem. Itt ismerkedtem meg a Jógával és a
-                Meditációval. Hatalmas, pozitív változás következett be az
-                életembe. Ezután éreztem, hogy oktatni és fejlődni szeretnék.
-                Több éve érzem, hogy a Világnak szüksége van fejlődésre, lelki &
-                testi szinten is. Ezért is nyitotta meg kapuit a Nancy Yoga •
-                EGER.
+                Gávai Nancy vagyok, világutazó lélek, aki szereti a határokat
+                feszegetni – legyen az a jógaszőnyegen vagy az életben! 5+ éve
+                tanítok air jógát gyerekeknek és felnőtteknek, szeretem a
+                kreativitást a mindennapokba csempészni. Erasmus+ és Campus
+                Mundi ösztöndíjas kalandjaim során Spanyolországban és
+                Portugáliában szereztem életre szóló élményeket Ha szereted a
+                jógát, a kreativitást és az inspiráló beszélgetéseket, itt jó
+                helyen jársz!
+              </Typography>
+              <Typography mt={2}>
+                Foglalás:
+                {' '}
+                <Link
+                  href="https://nancyyoga.booked4.us/public/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  https://nancyyoga.booked4.us/public/
+                </Link>
               </Typography>
             </Box>
           </Grid>
@@ -148,6 +176,7 @@ function About() {
                 maxHeight: 500,
                 objectFit: 'cover',
                 // objectPosition: { sm: 'center', md: '0px -100px' },
+                objectPosition: 'top',
                 width: '100%',
                 height: { xs: '100%', sm: 500, md: 400 },
               }}
@@ -165,33 +194,39 @@ function About() {
               sx={{
                 maxHeight: 500,
                 objectFit: 'cover',
-                // objectPosition: '0px -100px',
+                // objectPosition: { sm: 'center', md: '0px -100px' },
                 width: '100%',
                 height: { xs: '100%', sm: 500, md: 400 },
               }}
-              src="/trainers/brigi-yoga-about.jpg"
+              src="/trainers/anita-yoga-about.jpg"
             />
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
             <Box>
               <Typography variant="h5" component="h2">
-                Vizslán Brigitta
+                Bodó Anita
               </Typography>
               <Typography gutterBottom variant="subtitle2">
-                Gyermekjóga oktató
+                Hatha & flow jógaoktató, Pránajámaoktató növendék
               </Typography>
               <Typography>
-                Két gyermekes anyuka vagyok, emellett már évek óta gyerekekkel
-                dolgozom. Kilenc évig óvodában dolgoztam, nagyon szeretem a
-                gyerekek társaságát, és úgy gondolom, hogy nagyon könnyen
-                megtalálom velük a közös hangot. Jelenleg gyermektáborok
-                szervezésével és a jógával foglalkozom. Anya- Lánya illetve
-                gyermekjóga órákat tartok. A gyerekek nagyon szívesen játszanak
-                és mozognak egyszerre, így könnyedèn sajátítják el a jógázás
-                örömét, tanulják meg az állatok utánzásával a jóga ászanákat. A
-                rendszeres jógázás testi, lelki , szellemi szinten egyaránt
-                megalapozzák a kicsik egészséges èletèt. Szeretettel várok
-                minden jógázni vágyó gyereket!
+                Mindig is szenvedélyesen szerettem mozogni. Versenyszerűen
+                karatéztam, ami mellé szerettem volna egy lágyabb mozgásformát
+                is beiktatni az életembe. Akkor azt hittem, a jóga csak nyújtózó
+                mozdulatokból áll, meg egy pár perc néma csendben történő
+                ülésből. Hatalmasat tévedtem. Igazából ez a legjobb tévedés, ami
+                történhetett velem. Azóta a saját gyakorlásaim mellett heti
+                rendszerességgel oktathatom a jógát és építhetem a szívemnek
+                kedves Cup of Moon közösséget. Folyamatosan képzem magam, hogy a
+                tudásom legjavát adhassam a gyakorlóknak. Az óráimon kiemelt
+                figyelmet kap a megfelelő mobilizáció, a preventív ászana
+                gyakorlás és a pránajámák - légzőgyakorlatok. Szívügyem, hogy
+                egy mély levegővétellel mindenki felfedezhesse, hogy a jóga a
+                szőnyegen túl kezdődik csak igazán. Hiszek a közös fejlődésben
+                és a közösség erejében, ezért a közös jógás utunkat különböző
+                jógás programokkal, workshopokkal és rendezvényekkel igyekszem
+                színesíteni. Ha csatlakoznál erre a közös utazásra, sok
+                szeretettel várlak az óráimra!
               </Typography>
             </Box>
           </Grid>
@@ -203,24 +238,20 @@ function About() {
           <Grid item xs={12} sm={6} md={6} order={{ xs: 2, sm: 1 }}>
             <Box>
               <Typography variant="h5" component="h2">
-                Bodó Anita
+                Ida Dávid-Liktor
               </Typography>
               <Typography gutterBottom variant="subtitle2">
-                Hatha Jóga Oktató
+                Hatha jóga oktató
               </Typography>
               <Typography>
-                A sport kiskorom óta szerves része volt az életemnek,
-                versenyszerűen karatéztam és ehhez kerestem egy kis segítséget.
-                Így találkoztam a jógával, amire kezdetben kiegészítő mozgásként
-                tekintettem, majd ahogy egyre jobban belecsöppentem,
-                megtapasztaltam hogy mennyi pozitív lelki és testi hatása van.
-                Teljes szerelem lett. Segített, hogy mint sportoló és mint nő
-                megtaláljam az egyensúlyomat, amikor a világ a feje tetejére
-                áll. Ezt az érzést szeretném átadni az órámon, megteremteni a
-                harmóniát az erő, a stabilitás és a rugalmasság között, a
-                légzőgyakorlatok és az ászanák által. A célom az, hogy amikor
-                belépsz az órámra, a külvilág zajait a hátad mögött hagyd és
-                megérkezz a pillanatba.
+                Ida vagyok, több éve lelkes yogi, jógaoktató, egy két éves
+                kisfiú anyukája. Szeretek kísérletezni, új dolgokat tanulni,
+                imádok szervezni és élményeket gyüjteni. A jógás utam elején a
+                dinamikus vinyasa volt a kedvencem, azóta a slow flow és a yin
+                ad a legtöbbet. Célom hogy akárhol is tartasz a saját jógás
+                utadon, tudjalak kísérni, inspirálni, hogy a rendszeres
+                jógagyakorlás a napjaid része legyen és a jóga kisétáljon az
+                életedbe is.
               </Typography>
             </Box>
           </Grid>
@@ -230,15 +261,14 @@ function About() {
               sx={{
                 maxHeight: 500,
                 objectFit: 'cover',
-                // objectPosition: { sm: 'center', md: '0px -100px' },
+                // objectPosition: '0px -100px',
                 width: '100%',
                 height: { xs: '100%', sm: 500, md: 400 },
               }}
-              src="/trainers/anita-yoga-about.jpg"
+              src="/trainers/ida-yoga-about.jpeg"
             />
           </Grid>
         </Grid>
-
       </Container>
 
       <Divider variant="middle" />

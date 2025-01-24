@@ -26,6 +26,10 @@ const lessonTypeSchema = new mongoose.Schema({
     required: true,
   },
   instructor: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
+  hidden: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 export default mongoose.model('lessonType', lessonTypeSchema);
