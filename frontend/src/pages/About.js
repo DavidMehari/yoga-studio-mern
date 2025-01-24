@@ -21,13 +21,8 @@ function About() {
       if (result.lessonTypes?.length) {
         setLessonTypes(result.lessonTypes.filter((lessonType) => !lessonType?.hidden));
       }
-      console.log(lessonTypes);
     });
   }, []);
-
-  useEffect(() => {
-    console.log(lessonTypes);
-  }, [lessonTypes]);
 
   const openLessonTypeDetails = (lessonType) => {
     setDetailedLessonTypeOpen(true);
