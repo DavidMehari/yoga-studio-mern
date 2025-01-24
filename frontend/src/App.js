@@ -27,6 +27,7 @@ function App() {
       <ThemeProvider theme={theme}>
         <Header />
         <Helmet>
+          {/* Version 2 */}
           {/* Primary Meta Tags */}
           <title>Fusion Yoga Stúdió</title>
           <meta name="title" content="Fusion Yoga Stúdió" />

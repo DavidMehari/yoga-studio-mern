@@ -97,7 +97,7 @@ function About() {
                 width: '100%',
                 height: { xs: '100%', sm: 500, md: 400 },
               }}
-              src="/trainers/eniko-yoga-about.jpg"
+              src="/trainers/eniko-yoga-about.webp"
             />
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
@@ -198,7 +198,7 @@ function About() {
                 width: '100%',
                 height: { xs: '100%', sm: 500, md: 400 },
               }}
-              src="/trainers/anita-yoga-about.jpg"
+              src="/trainers/anita-yoga-about.webp"
             />
           </Grid>
           <Grid item xs={12} sm={6} md={6}>
