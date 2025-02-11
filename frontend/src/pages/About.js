@@ -175,7 +175,7 @@ function About() {
                 width: '100%',
                 height: { xs: '100%', sm: 500, md: 400 },
               }}
-              src="/trainers/nancy-yoga-about.jpg"
+              src="/trainers/nancy-yoga-about-2.jpg"
             />
           </Grid>
         </Grid>
