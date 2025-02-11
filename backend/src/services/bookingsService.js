@@ -68,7 +68,8 @@ export const bookingsService = {
 
     const newBookingPopulated = await Booking.findById(newBooking._id)
       .populate('user', 'name email')
-      .populate({ path: 'lesson', populate: { path: 'type', select: 'name' } });
+      // .populate({ path: 'lesson', populate: { path: 'type', select: 'name' } });
+      .populate({ path: 'lesson', populate: { path: 'type', select: 'name instructor', populate: { path: 'instructor', select: 'email' } } });
 
     emailServiceProd.sendBookingConfirmationEmail(newBookingPopulated);
 
@@ -100,7 +101,8 @@ export const bookingsService = {
 
     const updatedBookingPopulated = await Booking.findById(updatedBooking._id)
       .populate('user', 'name email')
-      .populate({ path: 'lesson', populate: { path: 'type', select: 'name' } });
+      // .populate({ path: 'lesson', populate: { path: 'type', select: 'name' } });
+      .populate({ path: 'lesson', populate: { path: 'type', select: 'name instructor', populate: { path: 'instructor', select: 'email' } } });
 
     const lesson = await Lesson.findById(bookingToUpdate.lesson);
 
