@@ -38,7 +38,7 @@ function PriceTableV2() {
             <Typography fontWeight={500}>48 000.-</Typography>
           </Box>
           <Typography fontWeight={300} mt={2} align="center">
-            A bérlet a vásárlás napjától számított 8 hétig érvényes!
+            Az 5 alkalmas bérlet 6 hétig, a 10 alkalmas bérlet pedig 11 hétig használható fel.
           </Typography>
         </Box>
       </Box>
