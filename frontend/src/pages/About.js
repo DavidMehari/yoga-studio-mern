@@ -252,15 +252,24 @@ function About() {
           </Grid>
           <Grid item xs={12} sm={6} md={6} order={{ xs: 1, sm: 2 }}>
             <Box
+              // component="img"
+              // sx={{
+              //   maxHeight: 500,
+              //   objectFit: 'cover',
+              //   // objectPosition: '0px -100px',
+              //   width: '100%',
+              //   ßheight: { xs: '100%', sm: 500, md: 400 },
+              // }}
               component="img"
               sx={{
                 maxHeight: 500,
                 objectFit: 'cover',
-                // objectPosition: '0px -100px',
+                // objectPosition: { sm: 'center', md: '0px -100px' },
+                objectPosition: 'top',
                 width: '100%',
                 height: { xs: '100%', sm: 500, md: 400 },
               }}
-              src="/trainers/ida-yoga-about.jpeg"
+              src="/trainers/ida-yoga-about-2.jpeg"
             />
           </Grid>
         </Grid>
