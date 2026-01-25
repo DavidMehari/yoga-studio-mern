@@ -44,8 +44,7 @@ function Home() {
           paragraph
           my={6}
         >
-          Egyéni, csoportos, talaj és levegő jóga órákkal várunk szinte a hét
-          minden napján.
+          Egyéni és csoportos órákkal várunk szinte a hét minden napján.
         </Typography>
 
         {/* <Divider variant="middle" /> */}
