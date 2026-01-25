@@ -31,7 +31,9 @@ function Filters({
   };
 
   useEffect(() => {
-    getAllLessonTypes().then((result) => setLessonTypes(result.lessonTypes));
+    getAllLessonTypes().then((result) => {
+      setLessonTypes(result.lessonTypes.filter((lessonType) => !lessonType?.hidden));
+    });
     getAllInstructorNames().then((result) => setInstructors(result.instructors));
   }, []);
 
