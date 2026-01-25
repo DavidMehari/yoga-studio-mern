@@ -21,7 +21,7 @@ const classTypes = [
 function Services() {
   return (
     <Container maxWidth="md" sx={{ my: 6 }}>
-      <Typography variant="h2" align="center" component="h1" gutterBottom paddingBottom={4}>
+      <Typography variant="h4" align="center" component="h1" gutterBottom paddingBottom={4}>
         Szolgáltatásaink
       </Typography>
       <Grid container spacing={3}>

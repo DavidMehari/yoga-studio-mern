@@ -32,7 +32,7 @@ function About() {
   return (
     <>
       <Container maxWidth="md" sx={{ my: 4 }}>
-        <Typography variant="h2" align="center" component="h1" gutterBottom>
+        <Typography variant="h4" align="center" component="h1" gutterBottom>
           Oktatóink
         </Typography>
         {/* <Typography
@@ -142,16 +142,20 @@ function About() {
                 Csoportos fitness instruktor
               </Typography>
               <Typography>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-                irure dolor in reprehenderit in voluptate velit esse cillum
-                dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-                cupidatat non proident, sunt in culpa qui officia deserunt
-                mollit anim id est laborum. Curabitur non nulla sit amet nisl
-                tempus convallis quis ac lectus. Vivamus suscipit tortor eget
-                felis porttitor volutpat.
+                Jelenleg a Chair Dance órák mellett alakformáló edzést és a
+                FlexiBody órákat tartom, mégis sokáig háttérbe szorult az
+                életemben a mozgás. Gyerekkoromban több évig különféle
+                táncórákra jártam, de később egészen 33 éves koromig szinte
+                teljesen kimaradt az aktív mozgás – csak időszakosan, pár hétre
+                tért vissza, majd újra elmaradt. Ezt egy rúdtánc óra
+                változtatta meg, ami azonnal magával ragadott: lenyűgözött,
+                hogy egyszerre nőies, mégis komoly erőnlétet igényel. Innentől
+                a mozgás az életem részévé vált, és visszahozta a tánc iránti
+                szenvedélyemet is. A Chair Dance számomra egy könnyed, bárki
+                számára elérhető mozgásforma, amin keresztül szeretném
+                megmutatni, hogy a mozgás lehet élvezetes, felszabadító és
+                valódi énidő is – és ez az út magával hozta az alakformálás és
+                a hajlékonyságfejlesztés iránti elköteleződésemet is.
               </Typography>
             </Box>
           </Grid>

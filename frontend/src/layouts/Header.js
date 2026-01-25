@@ -288,7 +288,7 @@ function Header() {
                       alt={activeUser.name}
                       src={
                         activeUser.avatar
-                        || 'https://www.pikpng.com/pngl/m/80-805068_my-profile-icon-blank-profile-picture-circle-clipart.png'
+                        || 'https://cdn-icons-png.freepik.com/512/147/147142.png'
                       }
                     />
                   </IconButton>
