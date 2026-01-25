@@ -3,6 +3,7 @@ import {
 } from '@mui/material';
 import About from './About';
 import Contact from './Contact';
+import Services from '../components/Services';
 
 function Home() {
   return (
@@ -83,7 +84,12 @@ function Home() {
 
       <Divider variant="middle" />
 
+      <Services />
+
+      <Divider variant="middle" />
+
       <About />
+
       <Contact />
     </>
   );

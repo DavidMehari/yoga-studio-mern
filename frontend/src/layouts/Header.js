@@ -82,6 +82,14 @@ function Header() {
             </ListItemButton>
           </ListItem>
         ))}
+        <ListItem disablePadding>
+          <ListItemButton
+            component={NavLink}
+            to="/timetable"
+          >
+            <ListItemText primary="Foglalás" />
+          </ListItemButton>
+        </ListItem>
       </List>
     </Box>
   );
@@ -134,7 +142,13 @@ function Header() {
     <>
       <AppBar position="static" sx={{ zIndex: 1 }}>
         <Container maxWidth="lg">
-          <Toolbar disableGutters>
+          <Toolbar
+            disableGutters
+            sx={{
+              position: 'relative',
+              minHeight: { xs: 88, sm: 88, md: 64 },
+            }}
+          >
             <SelfImprovementIcon
               sx={{ display: { xs: 'none', md: 'flex' }, mr: 1, color: 'white' }}
             />
@@ -171,28 +185,55 @@ function Header() {
 
             </Box>
 
-            <SelfImprovementIcon
-              sx={{ display: { xs: 'flex', md: 'none' }, mr: 1, color: 'white' }}
-            />
-            <Typography
-              variant="h5"
-              noWrap
-              component={NavLink}
-              to="/"
+            <Box
               sx={{
-                mr: 2,
                 display: { xs: 'flex', md: 'none' },
                 flexGrow: 1,
-                // fontFamily: 'The Nautigal',
-                fontFamily: 'Raleway',
-                fontWeight: 400,
-                letterSpacing: '.1rem',
-                color: 'white',
-                textDecoration: 'none',
+                flexDirection: 'column',
+                alignItems: 'center',
+                position: 'absolute',
+                left: '50%',
+                top: '50%',
+                transform: 'translate(-50%, -50%)',
               }}
             >
-              Fusion Yoga Studio
-            </Typography>
+              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                <SelfImprovementIcon sx={{ mr: 1, color: 'white' }} />
+                <Typography
+                  variant="h5"
+                  noWrap
+                  component={NavLink}
+                  to="/"
+                  sx={{
+                    // fontFamily: 'The Nautigal',
+                    fontFamily: 'Raleway',
+                    fontWeight: 400,
+                    letterSpacing: '.1rem',
+                    color: 'white',
+                    textDecoration: 'none',
+                  }}
+                >
+                  Fusion Yoga Studio
+                </Typography>
+              </Box>
+              <Button
+                variant="contained"
+                component={NavLink}
+                to="/timetable"
+                size="small"
+                sx={{
+                  mt: 0.5,
+                  color: 'white',
+                  fontWeight: 400,
+                  backgroundColor: '#cfcabf',
+                  '&:hover': {
+                    backgroundColor: '#bdb6a1',
+                  },
+                }}
+              >
+                Foglalás
+              </Button>
+            </Box>
 
             <Box
               sx={{
@@ -217,6 +258,24 @@ function Header() {
                   {pages[page]}
                 </Button>
               ))}
+              <Button
+                variant="contained"
+                component={NavLink}
+                to="/timetable"
+                sx={{
+                  my: 2,
+                  mr: 2,
+                  color: 'white',
+                  display: 'block',
+                  fontWeight: 400,
+                  backgroundColor: '#bdb6a1',
+                  '&:hover': {
+                    backgroundColor: 'primary.dark',
+                  },
+                }}
+              >
+                Foglalás
+              </Button>
             </Box>
             {activeUser ? (
               <Box sx={{ flexGrow: 0 }}>

@@ -40,7 +40,11 @@ function LessonForm({ submitAction, lesson }) {
   const [lessonTypes, setLessonTypes] = useState([]);
 
   useEffect(() => {
-    getAllLessonTypes().then((result) => setLessonTypes(result.lessonTypes));
+    getAllLessonTypes().then((result) => {
+      const visibleLessonTypes = (result.lessonTypes || [])
+        .filter((lessonType) => !lessonType?.hidden);
+      setLessonTypes(visibleLessonTypes);
+    });
   }, []);
 
   const isNotEmpty = (input = '') => {

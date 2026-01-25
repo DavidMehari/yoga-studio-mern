@@ -72,6 +72,15 @@ function Timetable() {
         <Typography variant="h2" align="center" component="div" gutterBottom>
           Órarend
         </Typography>
+        <Typography
+          variant="body1"
+          align="center"
+          color="text.secondary"
+          sx={{ mb: 3 }}
+        >
+          Először válaszd ki a dátumot, majd a megjelenő órák közül
+          válaszd ki azt, amelyiket foglalni szeretnéd.
+        </Typography>
 
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>

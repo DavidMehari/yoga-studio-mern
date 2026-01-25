@@ -6,7 +6,7 @@ import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import {
-  Box, CardActionArea, Divider, Link,
+  Box, CardActionArea, Divider,
 } from '@mui/material';
 import { getAllLessonTypes } from '../helpers/utils';
 import LessonTypeDetailed from '../components/LessonTypeDetailed';
@@ -80,7 +80,7 @@ function About() {
         </Typography>
       </Container> */}
 
-      <Container sx={{ py: 8 }}>
+      <Container sx={{ pb: 8 }}>
         <Grid container spacing={4} justifyContent="center" my={4}>
           <Grid item xs={12} sm={6} md={6}>
             <Box
@@ -136,6 +136,45 @@ function About() {
           <Grid item xs={12} sm={6} md={6} order={{ xs: 2, sm: 1 }}>
             <Box>
               <Typography variant="h5" component="h2">
+                Rofcsasz Alexandra
+              </Typography>
+              <Typography gutterBottom variant="subtitle2">
+                Csoportos fitness instruktor
+              </Typography>
+              <Typography>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
+                do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+                irure dolor in reprehenderit in voluptate velit esse cillum
+                dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+                cupidatat non proident, sunt in culpa qui officia deserunt
+                mollit anim id est laborum. Curabitur non nulla sit amet nisl
+                tempus convallis quis ac lectus. Vivamus suscipit tortor eget
+                felis porttitor volutpat.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={6} order={{ xs: 1, sm: 2 }}>
+            <Box
+              component="img"
+              sx={{
+                maxHeight: 500,
+                objectFit: 'cover',
+                width: '100%',
+                height: { xs: '100%', sm: 500, md: 400 },
+              }}
+              src="/trainers/szandra-dance-about.jpeg"
+            />
+          </Grid>
+        </Grid>
+
+        <Divider variant="middle" />
+
+        {/* <Grid container spacing={4} justifyContent="center" my={4}>
+          <Grid item xs={12} sm={6} md={6} order={{ xs: 2, sm: 1 }}>
+            <Box>
+              <Typography variant="h5" component="h2">
                 Gávai Nancy
               </Typography>
               <Typography gutterBottom variant="subtitle2">
@@ -178,7 +217,7 @@ function About() {
               src="/trainers/nancy-yoga-about-2.jpg"
             />
           </Grid>
-        </Grid>
+        </Grid> */}
 
         <Divider variant="middle" />
 
