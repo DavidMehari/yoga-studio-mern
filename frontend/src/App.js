@@ -20,6 +20,7 @@ import AdminRoute from './components/admin/AdminRoute';
 import NotImplementedYet from './pages/NotImplementedYet';
 import AllLessons from './pages/admin/AllLessons';
 import AddLessonType from './pages/admin/AddLessonType';
+import Retreats from './pages/Retreats';
 
 function App() {
   return (
@@ -53,6 +54,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/timetable" element={<Timetable />} />
+            <Route path="/retreats" element={<Retreats />} />
             <Route path="/prices" element={<Prices />} />
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />

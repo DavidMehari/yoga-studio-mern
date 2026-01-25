@@ -23,6 +23,7 @@ import { useUserContext } from '../contexts/UserContext';
 
 const pages = {
   timetable: 'Órarend',
+  retreats: 'Elvonulások',
   prices: 'Áraink',
   about: 'Rólunk',
   contact: 'Kapcsolat',
@@ -239,6 +240,7 @@ function Header() {
               sx={{
                 flexGrow: 1,
                 justifyContent: 'flex-end',
+                gap: 1,
                 display: { xs: 'none', md: 'flex' },
               }}
             >
