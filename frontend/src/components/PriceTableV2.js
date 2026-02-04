@@ -13,33 +13,22 @@ function PriceTableV2() {
           align="center"
           component="h2"
         >
-          Talaj Jóga
+          Órajegy
         </Typography>
         <Divider />
         <Box mt={2} mb={4}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography>1 alkalom</Typography>
-            <Typography fontWeight={500}>3 700.-</Typography>
+            <Typography>1 Alkalom Jóga, Pilates</Typography>
+            <Typography fontWeight={500}>4000ft</Typography>
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography>5 alkalas bérlet</Typography>
-            <Typography fontWeight={500}>16 000.-</Typography>
+            <Typography>1 Alkalom Chair Dance</Typography>
+            <Typography fontWeight={500}>4000ft</Typography>
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography>10 alkalas bérlet</Typography>
-            <Typography fontWeight={500}>30 000.-</Typography>
+            <Typography>1 Alkalom Balett</Typography>
+            <Typography fontWeight={500}>4000ft</Typography>
           </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography>Egyéni Jóga / Páros Jóga</Typography>
-            <Typography fontWeight={500}>14 000.-</Typography>
-          </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography>Egyéni Jóga / Páros Jóga 4 alkalas bérlet</Typography>
-            <Typography fontWeight={500}>48 000.-</Typography>
-          </Box>
-          <Typography fontWeight={300} mt={2} align="center">
-            Az 5 alkalmas bérlet 6 hétig, a 10 alkalmas bérlet pedig 11 hétig használható fel.
-          </Typography>
         </Box>
       </Box>
 
@@ -51,29 +40,45 @@ function PriceTableV2() {
           align="center"
           component="h2"
         >
-          Air Yoga
+          Bérlet
+        </Typography>
+        <Divider />
+        <Box mt={2} mb={4}>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Typography>3 alkalmas mini bérlet</Typography>
+            <Typography fontWeight={500}>11.000ft</Typography>
+          </Box>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Typography>5 alkalmas bérlet</Typography>
+            <Typography fontWeight={500}>17.500ft</Typography>
+          </Box>
+          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+            <Typography>10 alkalmas bérlet</Typography>
+            <Typography fontWeight={500}>32.500ft</Typography>
+          </Box>
+        </Box>
+      </Box>
+
+      <Box>
+        <Typography
+          variant="h4"
+          fontSize={30}
+          fontWeight={300}
+          align="center"
+          component="h2"
+        >
+          Egyéni óra
         </Typography>
         <Divider />
         <Box mt={2} mb={4}>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
             <Typography>1 alkalom</Typography>
-            <Typography fontWeight={500}>4 500.-</Typography>
+            <Typography fontWeight={500}>18.000ft</Typography>
           </Box>
           <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography>1 alkalom Air Yoga Kids</Typography>
-            <Typography fontWeight={500}>3 900.-</Typography>
+            <Typography>4 alkalmas bérlet</Typography>
+            <Typography fontWeight={500}>64.000ft</Typography>
           </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography>4 alkalas bérlet</Typography>
-            <Typography fontWeight={500}>15 000.-</Typography>
-          </Box>
-          <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-            <Typography>Egyéni Jóga / Páros Jóga</Typography>
-            <Typography fontWeight={500}>14 000.-</Typography>
-          </Box>
-          <Typography fontWeight={300} mt={2} align="center">
-            A KIDS bérlet a vásárlás napjától számított 6 hétig érvényes!
-          </Typography>
         </Box>
       </Box>
     </Box>
